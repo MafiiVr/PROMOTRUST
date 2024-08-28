@@ -4,6 +4,6 @@ import pe.edu.upc.promotrust.entities.Usuario;
 
 public interface IUsuarioService{
 
-    public void insert (Usuario usuario);
+    public void insert (Usuario usuario); //crear nuevos usuarios
 
 }
