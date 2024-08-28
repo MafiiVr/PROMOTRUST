@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import pe.edu.upc.promotrust.dtos.UsuarioDTO;
 import pe.edu.upc.promotrust.entities.Usuario;
 import pe.edu.upc.promotrust.serviceinterface.IUsuarioService;
-/**HOLA */
 
 @RestController
 @RequestMapping("/usuarios")
