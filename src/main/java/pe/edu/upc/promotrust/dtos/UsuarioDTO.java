@@ -1,31 +1,19 @@
 package pe.edu.upc.promotrust.dtos;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name= "Usuario")
 public class UsuarioDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idusuario;
 
-    @Column(name = "nombre", nullable = false, length = 40)
     private String nombre;
 
-    @Column(name = "contrasenia", nullable = false, length = 40)
     private String contrasenia;
 
-    @Column(name = "apellidos", nullable = false, length = 40)
     private String apellidos;
 
-    @Column(name = "telefono", nullable = false)
     private int telefono;
 
-    @Column(name = "correo", nullable = false, length = 40)
     private String correo;
 
-    @Column(name = "RUC", nullable = false)
     private int RUC;
 
     //Setters and getters
