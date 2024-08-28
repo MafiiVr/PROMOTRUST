@@ -10,10 +10,10 @@ import pe.edu.upc.promotrust.serviceinterface.IUsuarioService;
 public class UsuarioServiceImplement implements IUsuarioService {
 
     @Autowired
-    private IUsuarioRepository uS;
+    private IUsuarioRepository uR;
 
     @Override
     public void insert(Usuario usuario) {
-        uS.save(usuario);
+        uR.save(usuario);
     }
 }
