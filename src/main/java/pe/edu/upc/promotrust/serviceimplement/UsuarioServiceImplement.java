@@ -6,6 +6,8 @@ import pe.edu.upc.promotrust.entities.Usuario;
 import pe.edu.upc.promotrust.repositories.IUsuarioRepository;
 import pe.edu.upc.promotrust.serviceinterface.IUsuarioService;
 
+import java.util.List;
+
 @Service
 public class UsuarioServiceImplement implements IUsuarioService {
 
@@ -16,4 +18,11 @@ public class UsuarioServiceImplement implements IUsuarioService {
     public void insert(Usuario usuario) {
         uR.save(usuario);
     }
+
+    @Override
+    public List<Usuario> list() {
+        return uR.findAll();
+    }
+
+
 }
