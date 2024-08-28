@@ -11,10 +11,8 @@ public class UsuarioServiceImplement implements IUsuarioService {
     @Autowired
     private IUsuarioService uS;
 
-
     @Override
     public void insert(Usuario usuario) {
-
-
+        
     }
 }
