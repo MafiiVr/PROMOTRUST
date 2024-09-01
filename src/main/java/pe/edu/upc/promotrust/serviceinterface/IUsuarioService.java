@@ -10,4 +10,8 @@ public interface IUsuarioService{
 
     public List<Usuario> list();
 
+    public void update (Usuario usuario);
+
+    public void delete (int id);
+
 }

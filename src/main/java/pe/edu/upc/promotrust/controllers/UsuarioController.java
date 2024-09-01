@@ -1,5 +1,6 @@
 package pe.edu.upc.promotrust.controllers;
 
+import com.sun.jdi.IntegerValue;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class UsuarioController {
         uS.insert(u);
     }
 
-    ;
+
 
     @GetMapping
     public List<UsuarioDTO> listar() {
@@ -36,6 +37,18 @@ public class UsuarioController {
 
 
     }
+    @PutMapping
+    public void modificar(@RequestBody UsuarioDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Usuario u = m.map(dto, Usuario.class);
+        uS.update(u);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Integer id) {
+        uS.delete(id);
+    }
+
 
 
 }
