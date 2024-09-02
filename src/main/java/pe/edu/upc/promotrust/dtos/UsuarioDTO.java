@@ -1,5 +1,10 @@
 package pe.edu.upc.promotrust.dtos;
 
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import pe.edu.upc.promotrust.entities.Roles;
+import pe.edu.upc.promotrust.entities.Tips;
+
 public class UsuarioDTO {
 
     private int idusuario;
@@ -16,7 +21,10 @@ public class UsuarioDTO {
 
     private int RUC;
 
-    //Setters and getters
+    private Tips tips;
+
+    private Roles roles;
+
     public int getIdusuario() {
         return idusuario;
     }
@@ -72,4 +80,22 @@ public class UsuarioDTO {
     public void setRUC(int RUC) {
         this.RUC = RUC;
     }
+
+    public Tips getTips() {
+        return tips;
+    }
+
+    public void setTips(Tips tips) {
+        this.tips = tips;
+    }
+
+    public Roles getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Roles roles) {
+        this.roles = roles;
+    }
+//Setters and getters
+
 }
