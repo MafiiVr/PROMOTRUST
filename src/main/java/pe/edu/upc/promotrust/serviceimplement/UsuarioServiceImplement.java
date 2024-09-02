@@ -25,13 +25,13 @@ public class UsuarioServiceImplement implements IUsuarioService {
     }
 
     @Override
-    public void update(Usuario usuario) {
-        uR.save(usuario);
+    public void delete(int id) {
+        uR.deleteById(id);
     }
 
     @Override
-    public void delete(int id) {
-        uR.deleteById(id);
+    public Usuario listid(int id) {
+        return uR.findById(id).orElse(new Usuario());
     }
 
 

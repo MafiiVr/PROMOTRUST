@@ -7,21 +7,29 @@ import pe.edu.upc.promotrust.repositories.ITipsRepository;
 import pe.edu.upc.promotrust.serviceinterface.ITipsService;
 
 import java.util.List;
-
 @Service
 public class TipsServiceImplement implements ITipsService {
-
     @Autowired
-    private ITipsRepository iR;
+    private ITipsRepository tR;
 
     @Override
     public List<Tips> list() {
-        return iR.findAll();
+        return tR.findAll();
     }
 
     @Override
     public void insert(Tips tips) {
-        iR.save(tips);
+        tR.save(tips);
 
+    }
+
+    @Override
+    public void delete(int id) {
+        tR.deleteById(id);
+    }
+
+    @Override
+    public Tips listId(int id) {
+        return tR.findById(id).orElse(new Tips());
     }
 }

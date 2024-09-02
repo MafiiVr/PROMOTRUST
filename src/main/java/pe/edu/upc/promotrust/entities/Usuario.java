@@ -16,7 +16,7 @@ import javax.management.relation.Role;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idusuario;
+    private int id;
 
     @Column(name = "nombre", nullable = false, length = 40)
     private String nombre;
@@ -37,11 +37,8 @@ public class Usuario {
     private int RUC;
 
     @ManyToOne
-    @JoinColumn(name = "tips_idtips")
+    @JoinColumn(name = "idTips")
     private Tips tips;
 
-    @ManyToOne
-    @JoinColumn(name = "id_Roles")
-    private Roles roles;
 
 }

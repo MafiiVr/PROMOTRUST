@@ -1,21 +1,18 @@
 package pe.edu.upc.promotrust.dtos;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class TipsDTO {
-
-    private Long idtips;
-
+    private int id;
     private String contenido;
+    private LocalDate fecha_creacion;
 
-    private LocalDateTime fecha_creacio;
-
-    public Long getIdtips() {
-        return idtips;
+    public int getId() {
+        return id;
     }
 
-    public void setIdtips(Long idtips) {
-        this.idtips = idtips;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getContenido() {
@@ -26,11 +23,11 @@ public class TipsDTO {
         this.contenido = contenido;
     }
 
-    public LocalDateTime getFecha_creacio() {
-        return fecha_creacio;
+    public LocalDate getFecha_creacion() {
+        return fecha_creacion;
     }
 
-    public void setFecha_creacio(LocalDateTime fecha_creacio) {
-        this.fecha_creacio = fecha_creacio;
+    public void setFecha_creacion(LocalDate fecha_creacion) {
+        this.fecha_creacion = fecha_creacion;
     }
 }

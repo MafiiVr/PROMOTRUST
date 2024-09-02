@@ -2,16 +2,18 @@ package pe.edu.upc.promotrust.dtos;
 
 
 public class RolesDTO {
-    private int idRoles;
+    private int id;
 
     private String tipoRol;
 
-    public int getIdRoles() {
-        return idRoles;
+    private UsuarioDTO usuario;
+
+    public int getId() {
+        return id;
     }
 
-    public void setIdRoles(int idRoles) {
-        this.idRoles = idRoles;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTipoRol() {
@@ -20,5 +22,13 @@ public class RolesDTO {
 
     public void setTipoRol(String tipoRol) {
         this.tipoRol = tipoRol;
+    }
+
+    public UsuarioDTO getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioDTO usuario) {
+        this.usuario = usuario;
     }
 }

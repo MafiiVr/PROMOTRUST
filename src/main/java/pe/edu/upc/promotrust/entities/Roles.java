@@ -12,8 +12,14 @@ import lombok.NoArgsConstructor;
     public class Roles {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int idRoles;
+        private int id;
+
         @Column(name = "tipo_rol", nullable = false, length = 20)
         private String tipoRol;
+
+        @ManyToOne
+        @JoinColumn(name = "idUsuario")
+        private Usuario usuario;
+
     }
 
