@@ -1,9 +1,5 @@
 package pe.edu.upc.promotrust.dtos;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import pe.edu.upc.promotrust.entities.Pago;
-import pe.edu.upc.promotrust.entities.Tipo_Metododepago;
 
 public class MetodoPagoDTO {
     private int Id;
