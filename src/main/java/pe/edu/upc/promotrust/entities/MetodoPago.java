@@ -10,8 +10,8 @@ public class MetodoPago {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
     @ManyToOne
-    @JoinColumn(name = "fvdispositivo")
-    private Tipo_Metododepago fvdispositivo;
+    @JoinColumn(name = "IDtipoMetododepago")
+    private Tipo_Metododepago IDtipoMetododepago;
     @ManyToOne
     @JoinColumn(name = "Pago_Id")
     private Pago Pago_Id;
@@ -19,18 +19,10 @@ public class MetodoPago {
     public MetodoPago() {
     }
 
-    public MetodoPago(Tipo_Metododepago fvdispositivo, int id, Pago pago_Id) {
-        this.fvdispositivo = fvdispositivo;
+    public MetodoPago(int id, Tipo_Metododepago IDtipoMetododepago, Pago pago_Id) {
         Id = id;
+        this.IDtipoMetododepago = IDtipoMetododepago;
         Pago_Id = pago_Id;
-    }
-
-    public Tipo_Metododepago getFvdispositivo() {
-        return fvdispositivo;
-    }
-
-    public void setFvdispositivo(Tipo_Metododepago fvdispositivo) {
-        this.fvdispositivo = fvdispositivo;
     }
 
     public int getId() {
@@ -39,6 +31,14 @@ public class MetodoPago {
 
     public void setId(int id) {
         Id = id;
+    }
+
+    public Tipo_Metododepago getIDtipoMetododepago() {
+        return IDtipoMetododepago;
+    }
+
+    public void setIDtipoMetododepago(Tipo_Metododepago IDtipoMetododepago) {
+        this.IDtipoMetododepago = IDtipoMetododepago;
     }
 
     public Pago getPago_Id() {

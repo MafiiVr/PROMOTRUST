@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.promotrust.entities.Tipo_Metododepago;
 
 @Repository
-public interface ITipo_Metododepago extends JpaRepository<Tipo_Metododepago, Integer> {
+public interface ITipo_MetododepagoRepository extends JpaRepository<Tipo_Metododepago, Integer> {
 }
