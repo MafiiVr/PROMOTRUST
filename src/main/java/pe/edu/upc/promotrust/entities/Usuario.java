@@ -1,14 +1,22 @@
 package pe.edu.upc.promotrust.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.management.relation.Role;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "Usuario")
 
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idusuario;
+    private int id;
 
     @Column(name = "nombre", nullable = false, length = 40)
     private String nombre;
@@ -28,73 +36,9 @@ public class Usuario {
     @Column(name = "RUC", nullable = false)
     private int RUC;
 
-    public Usuario() {
+    @ManyToOne
+    @JoinColumn(name = "idTips")
+    private Tips tips;
 
-    }
 
-    public Usuario(int idusuario, String nombre, String contrasenia, String apellidos, int telefono, String correo, int RUC) {
-        this.idusuario = idusuario;
-        this.nombre = nombre;
-        this.contrasenia = contrasenia;
-        this.apellidos = apellidos;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.RUC = RUC;
-    }
-
-    public int getIdusuario() {
-        return idusuario;
-    }
-
-    public void setIdusuario(int idusuario) {
-        this.idusuario = idusuario;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public int getRUC() {
-        return RUC;
-    }
-
-    public void setRUC(int RUC) {
-        this.RUC = RUC;
-    }
 }

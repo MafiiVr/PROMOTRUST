@@ -1,8 +1,11 @@
 package pe.edu.upc.promotrust.dtos;
 
+import pe.edu.upc.promotrust.entities.Roles;
+import pe.edu.upc.promotrust.entities.Tips;
+
 public class UsuarioDTO {
 
-    private int idusuario;
+    private int id;
 
     private String nombre;
 
@@ -16,13 +19,14 @@ public class UsuarioDTO {
 
     private int RUC;
 
-    //Setters and getters
-    public int getIdusuario() {
-        return idusuario;
+    private TipsDTO tips;
+
+    public int getId() {
+        return id;
     }
 
-    public void setIdusuario(int idusuario) {
-        this.idusuario = idusuario;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -71,5 +75,13 @@ public class UsuarioDTO {
 
     public void setRUC(int RUC) {
         this.RUC = RUC;
+    }
+
+    public TipsDTO getTips() {
+        return tips;
+    }
+
+    public void setTips(TipsDTO tips) {
+        this.tips = tips;
     }
 }
