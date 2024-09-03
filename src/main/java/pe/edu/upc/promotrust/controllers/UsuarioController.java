@@ -4,9 +4,7 @@ import com.sun.jdi.IntegerValue;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.promotrust.dtos.TipsDTO;
 import pe.edu.upc.promotrust.dtos.UsuarioDTO;
-import pe.edu.upc.promotrust.entities.Tips;
 import pe.edu.upc.promotrust.entities.Usuario;
 import pe.edu.upc.promotrust.serviceinterface.IUsuarioService;
 
