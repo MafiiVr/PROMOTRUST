@@ -8,9 +8,7 @@ public class ContratoDTO {
 
     private String detalle_contrato;
 
-    private LocalDate fecha_inicio;
-
-    private LocalDate fecha_fin;
+    private String estado;
 
     public int getIdContrato() {
         return idContrato;
@@ -28,19 +26,11 @@ public class ContratoDTO {
         this.detalle_contrato = detalle_contrato;
     }
 
-    public LocalDate getFecha_inicio() {
-        return fecha_inicio;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setFecha_inicio(LocalDate fecha_inicio) {
-        this.fecha_inicio = fecha_inicio;
-    }
-
-    public LocalDate getFecha_fin() {
-        return fecha_fin;
-    }
-
-    public void setFecha_fin(LocalDate fecha_fin) {
-        this.fecha_fin = fecha_fin;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }
