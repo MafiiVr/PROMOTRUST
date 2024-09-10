@@ -3,6 +3,7 @@ package pe.edu.upc.promotrust.serviceimplement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.promotrust.entities.Contrato;
+import pe.edu.upc.promotrust.entities.Usuario;
 import pe.edu.upc.promotrust.repositories.IContratosRepository;
 import pe.edu.upc.promotrust.serviceinterface.IContratoService;
 
@@ -29,5 +30,10 @@ public class ContratoServiceImplement implements IContratoService {
     public void delete(int id) {
         cR.deleteById(id);
 
+    }
+
+    @Override
+    public Contrato listid(int id) {
+        return cR.findById(id).orElse(new Contrato());
     }
 }

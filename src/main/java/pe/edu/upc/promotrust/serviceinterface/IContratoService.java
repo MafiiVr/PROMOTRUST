@@ -2,6 +2,7 @@ package pe.edu.upc.promotrust.serviceinterface;
 
 
 import pe.edu.upc.promotrust.entities.Contrato;
+import pe.edu.upc.promotrust.entities.Usuario;
 
 import java.util.List;
 
@@ -12,5 +13,7 @@ public interface IContratoService {
     public void insert(Contrato contrato);
 
     public void delete(int id);
+
+    public Contrato listid(int id);
 
 }
