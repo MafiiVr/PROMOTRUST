@@ -4,7 +4,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.ContratoDTO;
+import pe.edu.upc.promotrust.dtos.IncidenciasDTO;
 import pe.edu.upc.promotrust.entities.Contrato;
+import pe.edu.upc.promotrust.entities.Incidencias;
 import pe.edu.upc.promotrust.serviceinterface.IContratoService;
 
 import java.util.List;
@@ -30,6 +32,13 @@ public class ContratoController {
         ModelMapper m=new ModelMapper();
         Contrato ct=m.map(dto, Contrato.class);
         cS.insert(ct);
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody ContratoDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Contrato ct = m.map(dto, Contrato.class);
+        cS.update(ct);
     }
 
     @DeleteMapping("/{id}")
