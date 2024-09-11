@@ -31,4 +31,9 @@ public class MetricasServiceImplement implements IMetricasService {
 
     }
 
+    @Override
+    public void update(Metricas metricas) {
+        mR.save(metricas);
+    }
+
 }
