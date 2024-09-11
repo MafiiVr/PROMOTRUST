@@ -30,4 +30,9 @@ public class ContratoServiceImplement implements IContratoService {
         cR.deleteById(id);
 
     }
+
+    @Override
+    public void update(Contrato contrato) {
+        cR.save(contrato);
+    }
 }
