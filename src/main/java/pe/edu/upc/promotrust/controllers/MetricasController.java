@@ -3,7 +3,9 @@ package pe.edu.upc.promotrust.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.promotrust.dtos.ContratoDTO;
 import pe.edu.upc.promotrust.dtos.MetricasDTO;
+import pe.edu.upc.promotrust.entities.Contrato;
 import pe.edu.upc.promotrust.entities.Metricas;
 import pe.edu.upc.promotrust.serviceinterface.IMetricasService;
 
@@ -35,5 +37,12 @@ public class MetricasController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         mS.delete(id);
+    }
+
+    @PutMapping
+    public void modificar(@RequestBody MetricasDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Metricas met = m.map(dto, Metricas.class);
+        mS.update(met);
     }
 }
