@@ -34,5 +34,15 @@ public class UsuarioServiceImplement implements IUsuarioService {
         return uR.findById(id).orElse(new Usuario());
     }
 
+    @Override
+    public List<String[]> usuariocontraroactivo() {
+        return uR.usuariocontraroactivo();
+    }
+
+    @Override
+    public List<String[]> listarUsuariosPorCategoria(String categoria) {
+        return uR.listarUsuariosPorCategoria(categoria);
+    }
+
 
 }
