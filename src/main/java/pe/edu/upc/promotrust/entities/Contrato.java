@@ -15,17 +15,16 @@ public class Contrato {
     @Column(name = "detalle_contrato",length = 35,nullable = false)
     private String detalle_contrato;
 
-    @Column(name = "fecha_inicio",nullable = false)
-    private LocalDate fecha_inicio;
+    @Column(name = "estadocontrato",length = 50,nullable = false)
+    private String estado;
 
-    @Column(name = "fecha_fin",nullable = false)
-    private LocalDate fecha_fin;
+    public Contrato() {
+    }
 
-    public Contrato(int idContrato, String detalle_contrato, LocalDate fecha_inicio, LocalDate fecha_fin) {
+    public Contrato(int idContrato, String detalle_contrato, String estado) {
         this.idContrato = idContrato;
         this.detalle_contrato = detalle_contrato;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
+        this.estado = estado;
     }
 
     public int getIdContrato() {
@@ -44,25 +43,11 @@ public class Contrato {
         this.detalle_contrato = detalle_contrato;
     }
 
-    public LocalDate getFecha_inicio() {
-        return fecha_inicio;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setFecha_inicio(LocalDate fecha_inicio) {
-        this.fecha_inicio = fecha_inicio;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
-
-    public LocalDate getFecha_fin() {
-        return fecha_fin;
-    }
-
-    public void setFecha_fin(LocalDate fecha_fin) {
-        this.fecha_fin = fecha_fin;
-    }
-
-
-    public Contrato() {
-
-    }
-
 }

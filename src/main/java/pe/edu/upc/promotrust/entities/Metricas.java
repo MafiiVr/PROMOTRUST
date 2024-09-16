@@ -27,7 +27,7 @@ public class Metricas {
 
     @ManyToOne
     @JoinColumn(name="contratoid")
-    public Contrato contrato;
+    private Contrato contrato;
 
     public Metricas() {
 
@@ -98,5 +98,4 @@ public class Metricas {
     public void setContrato(Contrato contrato) {
         this.contrato = contrato;
     }
-    
 }

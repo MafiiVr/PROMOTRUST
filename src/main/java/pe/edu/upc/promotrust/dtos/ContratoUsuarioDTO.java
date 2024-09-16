@@ -1,41 +1,21 @@
-package pe.edu.upc.promotrust.entities;
+package pe.edu.upc.promotrust.dtos;
 
-import jakarta.persistence.*;
+import pe.edu.upc.promotrust.entities.Contrato;
+import pe.edu.upc.promotrust.entities.Usuario;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "ContratoUsuario")
-public class ContratoUsuario {
+public class ContratoUsuarioDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idContratoUsuario;
 
-    @Column(name = "fecha_incio",nullable = false)
     public LocalDate fecha_inicio;
 
-    @Column(name = "fecha_fin",nullable = false)
     public LocalDate fecha_fin;
 
-    @ManyToOne
-    @JoinColumn(name="contratoid")
     private Contrato contrato;
 
-    @ManyToOne
-    @JoinColumn(name = "idUsuario")
     private Usuario usuario;
-
-    public ContratoUsuario() {
-    }
-
-    public ContratoUsuario(int idContratoUsuario, LocalDate fecha_inicio, LocalDate fecha_fin, Contrato contrato, Usuario usuario) {
-        this.idContratoUsuario = idContratoUsuario;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
-        this.contrato = contrato;
-        this.usuario = usuario;
-    }
 
     public int getIdContratoUsuario() {
         return idContratoUsuario;
