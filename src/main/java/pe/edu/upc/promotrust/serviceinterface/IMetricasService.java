@@ -15,4 +15,8 @@ public interface IMetricasService {
 
     public void update(Metricas metricas);
 
+    public List<String []> ingresosTotal();
+
+
+
 }
