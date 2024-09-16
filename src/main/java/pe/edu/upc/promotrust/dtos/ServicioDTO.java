@@ -1,6 +1,7 @@
 package pe.edu.upc.promotrust.dtos;
 
-import jakarta.persistence.Column;
+
+import pe.edu.upc.promotrust.entities.Contrato;
 
 public class ServicioDTO {
     private int idservicio;
@@ -14,6 +15,9 @@ public class ServicioDTO {
     private String categoria_servic;
 
     private String estado_servic;
+
+    private Contrato contrato;
+
 
     public int getIdservicio() {
         return idservicio;
@@ -61,5 +65,13 @@ public class ServicioDTO {
 
     public void setEstado_servic(String estado_servic) {
         this.estado_servic = estado_servic;
+    }
+
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
     }
 }
