@@ -35,4 +35,11 @@ public class ContratoServiceImplement implements IContratoService {
     public void update(Contrato contrato) {
         cR.save(contrato);
     }
+
+    @Override
+    public List<String[]> obtenerMetricasCantidad() {
+        return cR.cantidadmetricascontrato();
+    }
+
+
 }
