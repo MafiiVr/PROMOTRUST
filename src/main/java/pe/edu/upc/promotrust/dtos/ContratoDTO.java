@@ -1,6 +1,6 @@
 package pe.edu.upc.promotrust.dtos;
 
-import java.time.LocalDate;
+
 
 public class ContratoDTO {
 

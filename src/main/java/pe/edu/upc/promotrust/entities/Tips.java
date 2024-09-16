@@ -19,7 +19,7 @@ public class Tips implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "contenido", nullable = false, length = 50)
+    @Column(name = "contenido", nullable = false, length = 100)
     private String contenido;
 
     @Column(name = "fecha_creacion", nullable = false)

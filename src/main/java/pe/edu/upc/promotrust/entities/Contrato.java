@@ -12,10 +12,10 @@ public class Contrato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idContrato;
 
-    @Column(name = "detalle_contrato",length = 35,nullable = false)
+    @Column(name = "detalle_contrato",length = 100,nullable = false)
     private String detalle_contrato;
 
-    @Column(name = "estadocontrato",length = 50,nullable = false)
+    @Column(name = "estadocontrato",length = 100,nullable = false)
     private String estado;
 
     public Contrato() {
