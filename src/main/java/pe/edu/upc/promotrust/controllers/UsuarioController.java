@@ -4,10 +4,15 @@ import com.sun.jdi.IntegerValue;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.promotrust.dtos.CateogriaServiciosUsuriosDTO;
+import pe.edu.upc.promotrust.dtos.PreguntasDTO;
+import pe.edu.upc.promotrust.dtos.UsuarioContratoActivoDTO;
 import pe.edu.upc.promotrust.dtos.UsuarioDTO;
 import pe.edu.upc.promotrust.entities.Usuario;
 import pe.edu.upc.promotrust.serviceinterface.IUsuarioService;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,6 +59,47 @@ public class UsuarioController {
         Usuario t=m.map(usuarioDTO, Usuario.class);
         uS.insert(t);
     }
+
+
+    @GetMapping("/usuario_contrato_activo")
+    public List<UsuarioContratoActivoDTO> usuariocontraroactivo(){
+        List<String[]> filaLista= uS.usuariocontraroactivo();
+        List<UsuarioContratoActivoDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            UsuarioContratoActivoDTO dto = new UsuarioContratoActivoDTO();
+            dto.setId(Integer.parseInt(columna[0]));
+            dto.setNombre(columna[1]);
+            dto.setApellidos(columna[2]);
+            dto.setCorreo(columna[3]);
+            dto.setTelefono(columna[4]);
+            dto.setDetalle_contrato(columna[5]);
+            dto.setEstadocontrato(columna[6]);
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
+    @GetMapping("/Usuario_Categoria/{categoria}")
+    public List<CateogriaServiciosUsuriosDTO> listarUsuariosPorCategoria(@PathVariable("categoria") String categoria){
+        List<String[]> filaLista= uS.listarUsuariosPorCategoria(categoria);
+        List<CateogriaServiciosUsuriosDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            CateogriaServiciosUsuriosDTO dto = new CateogriaServiciosUsuriosDTO();
+            dto.setNombre_Usuario(columna[0]);
+            dto.setCategoria_Servicio(columna[1]);
+            dtoLista.add(dto);
+        }
+        return dtoLista;
+    }
+
+
+
+
+
+
+
+
+
 
 
 }
