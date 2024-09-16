@@ -14,11 +14,9 @@ import pe.edu.upc.promotrust.serviceinterface.IServicioService;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+@RestController
 @RequestMapping("/servicio")
 public class ServicioController {
-
-
     @Autowired
     private IServicioService seS;
 
