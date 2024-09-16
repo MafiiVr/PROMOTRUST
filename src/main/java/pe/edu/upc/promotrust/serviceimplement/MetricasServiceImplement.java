@@ -31,4 +31,14 @@ public class MetricasServiceImplement implements IMetricasService {
 
     }
 
+    @Override
+    public void update(Metricas metricas) {
+        mR.save(metricas);
+    }
+
+    @Override
+    public List<String[]> ingresosTotal() {
+        return mR.totalingresos();
+    }
+
 }

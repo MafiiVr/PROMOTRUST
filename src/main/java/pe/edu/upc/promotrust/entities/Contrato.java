@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "Contrato")
-
+//Hola mundo
 public class Contrato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +15,11 @@ public class Contrato {
     @Column(name = "detalle_contrato",length = 35,nullable = false)
     private String detalle_contrato;
 
-
-    @Column(name = "estado",length = 35,nullable = false)
+    @Column(name = "estadocontrato",length = 50,nullable = false)
     private String estado;
+
+    public Contrato() {
+    }
 
     public Contrato(int idContrato, String detalle_contrato, String estado) {
         this.idContrato = idContrato;
@@ -48,9 +50,4 @@ public class Contrato {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public Contrato() {
-
-    }
-
 }

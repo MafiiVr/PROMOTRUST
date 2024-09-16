@@ -1,5 +1,7 @@
 package pe.edu.upc.promotrust.dtos;
 
+import pe.edu.upc.promotrust.entities.Contrato;
+
 public class MetricasDTO {
 
     private int idMetrica;
@@ -13,6 +15,8 @@ public class MetricasDTO {
     public String comentarios;
 
     public int compartidos;
+
+    private Contrato contrato;
 
     public int getIdMetrica() {
         return idMetrica;
@@ -60,5 +64,13 @@ public class MetricasDTO {
 
     public void setCompartidos(int compartidos) {
         this.compartidos = compartidos;
+    }
+
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
     }
 }
