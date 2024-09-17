@@ -10,11 +10,10 @@ import java.util.List;
 @Repository
 public interface IContratosRepository extends JpaRepository<Contrato, Integer> {
 
-    @Query(value = " SELECT c.estadocontrato, COUNT(m.id_metrica)\n" +
+    @Query(value = " SELECT c.estadocontrato, COUNT(m.id)\n" +
             "FROM contrato c\n" +
-            "JOIN metricas m ON c.id_contrato = m.contratoid\n" +
+            "JOIN metricas m ON c.id = m.id_contrato\n" +
             "GROUP BY c.estadocontrato;", nativeQuery = true)
     public List<String []> cantidadmetricascontrato ();
-
 
 }
