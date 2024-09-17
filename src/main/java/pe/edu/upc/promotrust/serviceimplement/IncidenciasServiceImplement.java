@@ -32,6 +32,9 @@ public class  IncidenciasServiceImplement implements IIncidenciasService {
         return iR.buscarI(nombre);
     }
 
+    @Override
+    public  List<Incidencias> findMostRecentIncidencias(){return iR.findMostRecentIncidencias();
+    }
 
 
 

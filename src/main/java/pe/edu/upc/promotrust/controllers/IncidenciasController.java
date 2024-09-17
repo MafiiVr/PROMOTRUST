@@ -56,4 +56,11 @@ public class IncidenciasController {
             return m.map(x, PreguntasDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("/OrdenDescendiente")
+    public List<PreguntasDTO> Descentient() {
+        return iS.findMostRecentIncidencias().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, PreguntasDTO.class);
+        }).collect(Collectors.toList());
+    }
 }
