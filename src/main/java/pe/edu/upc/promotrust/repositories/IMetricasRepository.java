@@ -10,10 +10,10 @@ import java.util.List;
 @Repository
 public interface IMetricasRepository extends JpaRepository<Metricas, Integer> {
 
-    @Query(value = " SELECT c.id_contrato, SUM(m.ingresosgenerados)\n" +
+    @Query(value = " SELECT c.id, SUM(m.ingresosgenerados)\n" +
             " FROM contrato c\n" +
-            " JOIN metricas m ON c.id_contrato = m.contratoid\n" +
-            " GROUP BY c.id_contrato\n" +
+            " JOIN metricas m ON c.id = m.id_contrato\n" +
+            " GROUP BY c.id\n" +
             " ORDER BY SUM(m.ingresosgenerados) DESC;", nativeQuery = true) //siempre poner el nativeQuery = true
     public List<String []> totalingresos();
 }
