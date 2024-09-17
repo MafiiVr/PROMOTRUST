@@ -22,18 +22,16 @@ public class ContratoUsuarioServiceImplement implements IContratoUsuarioService 
     @Override
     public void insert(ContratoUsuario contratoUsuario) {
         rCU.save(contratoUsuario);
-
     }
 
     @Override
     public void delete(int id) {
         rCU.deleteById(id);
-
     }
 
     @Override
-    public void update(ContratoUsuario contratoUsuario) {
-        rCU.save(contratoUsuario);
-
+    public ContratoUsuario listId(int id) {
+        return rCU.findById(id).orElse(new ContratoUsuario());
     }
+
 }

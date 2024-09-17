@@ -1,16 +1,14 @@
 package pe.edu.upc.promotrust.dtos;
-import pe.edu.upc.promotrust.entities.Tips;
 
+public class UsuarioContratoActivoDTO {
 
-public class UsuarioDTO {
     private int id;
     private String nombre;
-    private String contrasenia;
     private String apellidos;
-    private int telefono;
     private String correo;
-    private int RUC;
-    private Tips tips;
+    private String telefono;
+    private String detalle_contrato;
+    private String estadocontrato;
 
     public int getId() {
         return id;
@@ -28,28 +26,12 @@ public class UsuarioDTO {
         this.nombre = nombre;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
     public String getApellidos() {
         return apellidos;
     }
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
     }
 
     public String getCorreo() {
@@ -60,19 +42,27 @@ public class UsuarioDTO {
         this.correo = correo;
     }
 
-    public int getRUC() {
-        return RUC;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setRUC(int RUC) {
-        this.RUC = RUC;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public Tips getTips() {
-        return tips;
+    public String getDetalle_contrato() {
+        return detalle_contrato;
     }
 
-    public void setTips(Tips tips) {
-        this.tips = tips;
+    public void setDetalle_contrato(String detalle_contrato) {
+        this.detalle_contrato = detalle_contrato;
+    }
+
+    public String getEstadocontrato() {
+        return estadocontrato;
+    }
+
+    public void setEstadocontrato(String estadocontrato) {
+        this.estadocontrato = estadocontrato;
     }
 }

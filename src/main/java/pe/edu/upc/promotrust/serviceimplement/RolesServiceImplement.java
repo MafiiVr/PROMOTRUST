@@ -19,9 +19,8 @@ public class RolesServiceImplement implements IRolesService {
     }
 
     @Override
-    public void insert(Roles role) {
-        rRE.save(role);
-
+    public void insert(Roles roles) {
+        rRE.save(roles);
     }
 
     @Override

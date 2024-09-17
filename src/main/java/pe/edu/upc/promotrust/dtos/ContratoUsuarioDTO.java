@@ -1,5 +1,8 @@
 package pe.edu.upc.promotrust.dtos;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import pe.edu.upc.promotrust.entities.Contrato;
 import pe.edu.upc.promotrust.entities.Usuario;
 
@@ -7,22 +10,29 @@ import java.time.LocalDate;
 
 public class ContratoUsuarioDTO {
 
-    private int idContratoUsuario;
-
-    public LocalDate fecha_inicio;
-
-    public LocalDate fecha_fin;
-
+    private int id;
+    private LocalDate fecha_inicio;
+    private LocalDate fecha_fin;
     private Contrato contrato;
-
     private Usuario usuario;
 
-    public int getIdContratoUsuario() {
-        return idContratoUsuario;
+    public ContratoUsuarioDTO() {
     }
 
-    public void setIdContratoUsuario(int idContratoUsuario) {
-        this.idContratoUsuario = idContratoUsuario;
+    public ContratoUsuarioDTO(int id, LocalDate fecha_inicio, LocalDate fecha_fin, Contrato contrato, Usuario usuario) {
+        this.id = id;
+        this.fecha_inicio = fecha_inicio;
+        this.fecha_fin = fecha_fin;
+        this.contrato = contrato;
+        this.usuario = usuario;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public LocalDate getFecha_inicio() {

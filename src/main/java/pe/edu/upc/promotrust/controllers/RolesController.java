@@ -1,16 +1,10 @@
 package pe.edu.upc.promotrust.controllers;
-
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.RolesDTO;
-import pe.edu.upc.promotrust.dtos.TipsDTO;
-import pe.edu.upc.promotrust.dtos.UsuarioDTO;
 import pe.edu.upc.promotrust.entities.Roles;
-import pe.edu.upc.promotrust.entities.Tips;
 import pe.edu.upc.promotrust.serviceinterface.IRolesService;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +20,6 @@ public class RolesController {
             ModelMapper m = new ModelMapper();
             return m.map(x, RolesDTO.class);
         }).collect(Collectors.toList());
-
     }
 
     @PostMapping
@@ -34,7 +27,6 @@ public class RolesController {
         ModelMapper m=new ModelMapper();
         Roles ro=m.map(dto, Roles.class);
         rS.insert(ro);
-
     }
 
     @PutMapping
@@ -47,7 +39,6 @@ public class RolesController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){
         rS.delete(id);
-
     }
 
     @GetMapping("/{id}")

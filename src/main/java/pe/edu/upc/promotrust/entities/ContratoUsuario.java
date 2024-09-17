@@ -10,39 +10,39 @@ public class ContratoUsuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idContratoUsuario;
+    private int id;
 
     @Column(name = "fecha_incio",nullable = false)
-    public LocalDate fecha_inicio;
+    private LocalDate fecha_inicio;
 
     @Column(name = "fecha_fin",nullable = false)
-    public LocalDate fecha_fin;
+    private LocalDate fecha_fin;
 
     @ManyToOne
-    @JoinColumn(name="contratoid")
+    @JoinColumn(name="idContrato")
     private Contrato contrato;
 
     @ManyToOne
-    @JoinColumn(name = "idUsuario")
+    @JoinColumn(name = "idUser")
     private Usuario usuario;
 
     public ContratoUsuario() {
     }
 
-    public ContratoUsuario(int idContratoUsuario, LocalDate fecha_inicio, LocalDate fecha_fin, Contrato contrato, Usuario usuario) {
-        this.idContratoUsuario = idContratoUsuario;
+    public ContratoUsuario(int id, LocalDate fecha_inicio, LocalDate fecha_fin, Contrato contrato, Usuario usuario) {
+        this.id = id;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
         this.contrato = contrato;
         this.usuario = usuario;
     }
 
-    public int getIdContratoUsuario() {
-        return idContratoUsuario;
+    public int getId() {
+        return id;
     }
 
-    public void setIdContratoUsuario(int idContratoUsuario) {
-        this.idContratoUsuario = idContratoUsuario;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public LocalDate getFecha_inicio() {

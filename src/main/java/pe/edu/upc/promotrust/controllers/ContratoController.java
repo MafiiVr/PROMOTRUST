@@ -2,12 +2,11 @@ package pe.edu.upc.promotrust.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.CantidadMetricasEstadoContratoDTO;
 import pe.edu.upc.promotrust.dtos.ContratoDTO;
-import pe.edu.upc.promotrust.dtos.IncidenciasDTO;
 import pe.edu.upc.promotrust.entities.Contrato;
-import pe.edu.upc.promotrust.entities.Incidencias;
 import pe.edu.upc.promotrust.serviceinterface.IContratoService;
 
 import java.util.ArrayList;
@@ -16,6 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/contrato")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class ContratoController {
 
     @Autowired
@@ -40,12 +40,19 @@ public class ContratoController {
     public void modificar(@RequestBody ContratoDTO dto) {
         ModelMapper m = new ModelMapper();
         Contrato ct = m.map(dto, Contrato.class);
-        cS.update(ct);
+        cS.insert(ct);
     }
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         cS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public ContratoDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        ContratoDTO dto=m.map(cS.listID(id),ContratoDTO.class);
+        return dto;
     }
 
     @GetMapping("/cantidadmetricassegunestado")

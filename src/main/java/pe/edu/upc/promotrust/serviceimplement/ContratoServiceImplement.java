@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import pe.edu.upc.promotrust.entities.Contrato;
 import pe.edu.upc.promotrust.repositories.IContratosRepository;
 import pe.edu.upc.promotrust.serviceinterface.IContratoService;
-
 import java.util.List;
 
 @Service
@@ -32,8 +31,8 @@ public class ContratoServiceImplement implements IContratoService {
     }
 
     @Override
-    public void update(Contrato contrato) {
-        cR.save(contrato);
+    public Contrato listID(int id) {
+        return cR.findById(id).orElse(new Contrato());
     }
 
     @Override

@@ -4,21 +4,31 @@ import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import pe.edu.upc.promotrust.entities.Contrato;
+import pe.edu.upc.promotrust.entities.Pago;
 
 import java.time.LocalDateTime;
 
 public class PagoDTO {
-    private int Id;
+    private int id;
     private float monto;
     private LocalDateTime fecha_pago;
-    private ContratoDTO Contrato_Id;
+    private Contrato contrato;
+    private Pago pago;
 
-    public ContratoDTO getContrato_Id() {
-        return Contrato_Id;
+    public int getId() {
+        return id;
     }
 
-    public void setContrato_Id(ContratoDTO contrato_Id) {
-        Contrato_Id = contrato_Id;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public float getMonto() {
+        return monto;
+    }
+
+    public void setMonto(float monto) {
+        this.monto = monto;
     }
 
     public LocalDateTime getFecha_pago() {
@@ -29,19 +39,19 @@ public class PagoDTO {
         this.fecha_pago = fecha_pago;
     }
 
-    public int getId() {
-        return Id;
+    public Contrato getContrato() {
+        return contrato;
     }
 
-    public void setId(int id) {
-        Id = id;
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
     }
 
-    public float getMonto() {
-        return monto;
+    public Pago getPago() {
+        return pago;
     }
 
-    public void setMonto(float monto) {
-        this.monto = monto;
+    public void setPago(Pago pago) {
+        this.pago = pago;
     }
 }

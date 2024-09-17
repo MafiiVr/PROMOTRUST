@@ -1,45 +1,14 @@
-package pe.edu.upc.promotrust.entities;
+package pe.edu.upc.promotrust.dtos;
+import pe.edu.upc.promotrust.entities.Contrato;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "Servicio")
-public class Servicio {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ServicioDTO {
     private int id;
-
-    @Column(name = "nombre_servicio", nullable = false, length = 40)
     private String nombre_servicio;
-
-    @Column(name = "descripcion", nullable = false, length = 200)
     private String descripcion;
-
-    @Column(name = "precio", nullable = false)
     private Double precio;
-
-    @Column(name = "categoria_servic", nullable = false, length = 80)
     private String categoria_servic;
-
-    @Column(name = "estado_servic", nullable = false, length = 10)
     private String estado_servic;
-
-    @ManyToOne
-    @JoinColumn(name = "idContrato")
     private Contrato contrato;
-
-    public Servicio() {
-    }
-
-    public Servicio(int id, String nombre_servicio, String descripcion, Double precio, String categoria_servic, String estado_servic, Contrato contrato) {
-        this.id = id;
-        this.nombre_servicio = nombre_servicio;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.categoria_servic = categoria_servic;
-        this.estado_servic = estado_servic;
-        this.contrato = contrato;
-    }
 
     public int getId() {
         return id;

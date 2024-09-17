@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Incidencias")
+
 public class IncidenciasController {
     @Autowired
     private IIncidenciasService iS;
@@ -34,11 +35,18 @@ public class IncidenciasController {
     public void modificar(@RequestBody IncidenciasDTO dto) {
         ModelMapper m = new ModelMapper();
         Incidencias in = m.map(dto, Incidencias.class);
-        iS.update(in);
+        iS.insert(in);
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         iS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public IncidenciasDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        IncidenciasDTO dto=m.map(iS.listId(id),IncidenciasDTO.class);
+        return dto;
     }
 
     @GetMapping("/busquedas")

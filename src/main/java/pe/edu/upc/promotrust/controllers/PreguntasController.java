@@ -33,12 +33,19 @@ public class PreguntasController {
     public void modificar(@RequestBody PreguntasDTO dto) {
         ModelMapper m = new ModelMapper();
         Preguntas pr = m.map(dto, Preguntas.class);
-        iP.update(pr);
+        iP.insert(pr);
     }
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         iP.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public PreguntasDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        PreguntasDTO dto=m.map(iP.listId(id),PreguntasDTO.class);
+        return dto;
     }
 
     @GetMapping("/busquedas")
