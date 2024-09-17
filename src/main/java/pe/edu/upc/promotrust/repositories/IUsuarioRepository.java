@@ -25,14 +25,14 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     @Query(value = "select u.id, u.nombre, u.apellidos, u.correo, u.telefono, c.detalle_contrato, c.estadocontrato " +
             "from usuario u " +
-            "inner join contrato c ON u.id = c.id_contrato " +
+            "inner join contrato c ON u.id = c.id " +
             "where c.estadocontrato = 'Activo';", nativeQuery = true)
     public List<String[]> usuariocontraroactivo();
 
     @Query(value = "select u.nombre as Nombre_Usuario, s.categoria_servic as Categoria_Servicio from usuario u " +
-            "inner join contrato_usuario cu on cu.id_usuario = u.id " +
-            "inner join contrato c on c.id_contrato= cu.contratoid " +
-            "inner join servicio s on s.id_contrato=c.id_contrato " +
+            "inner join contrato_usuario cu on cu.id_user = u.id " +
+            "inner join contrato c on c.id= cu.id_contrato " +
+            "inner join servicio s on s.id_contrato=c.id " +
             "where s.categoria_servic = :categoria", nativeQuery = true)
     public List<String[]> listarUsuariosPorCategoria(@Param("categoria") String categoria);
 }
