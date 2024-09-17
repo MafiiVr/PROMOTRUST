@@ -1,25 +1,16 @@
 package pe.edu.upc.promotrust.dtos;
-
-import pe.edu.upc.promotrust.entities.Roles;
 import pe.edu.upc.promotrust.entities.Tips;
 
+
 public class UsuarioDTO {
-
     private int id;
-
     private String nombre;
-
     private String contrasenia;
-
     private String apellidos;
-
     private int telefono;
-
     private String correo;
-
     private int RUC;
-
-    private TipsDTO tips;
+    private Tips tips;
 
     public int getId() {
         return id;
@@ -77,11 +68,11 @@ public class UsuarioDTO {
         this.RUC = RUC;
     }
 
-    public TipsDTO getTips() {
+    public Tips getTips() {
         return tips;
     }
 
-    public void setTips(TipsDTO tips) {
+    public void setTips(Tips tips) {
         this.tips = tips;
     }
 }

@@ -7,42 +7,37 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name="Pago")
 public class Pago {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int id;
     @Column(name = "monto",nullable = false)
     private float monto;
     @Column(name = "fecha_pago",nullable = false)
     private LocalDateTime fecha_pago;
     @ManyToOne
-    @JoinColumn(name = "Contrato_Id")
-    private Contrato Contrato_Id;
+    @JoinColumn(name = "idContrato")
+    private Contrato contrato;
+    @ManyToOne
+    @JoinColumn(name = "idPago")
+    private Pago pago;
 
     public Pago() {
     }
 
-    public Pago(Contrato contrato_Id, int id, LocalDateTime fecha_pago, float monto) {
-        Contrato_Id = contrato_Id;
-        Id = id;
-        this.fecha_pago = fecha_pago;
+    public Pago(int id, float monto, LocalDateTime fecha_pago, Contrato contrato, Pago pago) {
+        this.id = id;
         this.monto = monto;
-    }
-
-    public Contrato getContrato_Id() {
-        return Contrato_Id;
-    }
-
-    public void setContrato_Id(Contrato contrato_Id) {
-        Contrato_Id = contrato_Id;
-    }
-
-    public LocalDateTime getFecha_pago() {
-        return fecha_pago;
-    }
-
-    public void setFecha_pago(LocalDateTime fecha_pago) {
         this.fecha_pago = fecha_pago;
+        this.contrato = contrato;
+        this.pago = pago;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public float getMonto() {
@@ -53,11 +48,27 @@ public class Pago {
         this.monto = monto;
     }
 
-    public int getId() {
-        return Id;
+    public LocalDateTime getFecha_pago() {
+        return fecha_pago;
     }
 
-    public void setId(int id) {
-        Id = id;
+    public void setFecha_pago(LocalDateTime fecha_pago) {
+        this.fecha_pago = fecha_pago;
+    }
+
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
+    }
+
+    public Pago getPago() {
+        return pago;
+    }
+
+    public void setPago(Pago pago) {
+        this.pago = pago;
     }
 }

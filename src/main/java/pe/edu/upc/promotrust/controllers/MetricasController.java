@@ -45,7 +45,14 @@ public class MetricasController {
     public void modificar(@RequestBody MetricasDTO dto) {
         ModelMapper m = new ModelMapper();
         Metricas met = m.map(dto, Metricas.class);
-        mS.update(met);
+        mS.insert(met);
+    }
+
+    @GetMapping("/{id}")
+    public MetricasDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        MetricasDTO dto=m.map(mS.listId(id),MetricasDTO.class);
+        return dto;
     }
 
     @GetMapping("/metricaingresototal")

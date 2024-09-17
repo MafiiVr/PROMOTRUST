@@ -3,19 +3,16 @@ package pe.edu.upc.promotrust.dtos;
 
 
 public class ContratoDTO {
-
-    private int idContrato;
-
+    private int id;
     private String detalle_contrato;
-
     private String estado;
 
-    public int getIdContrato() {
-        return idContrato;
+    public int getId() {
+        return id;
     }
 
-    public void setIdContrato(int idContrato) {
-        this.idContrato = idContrato;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDetalle_contrato() {

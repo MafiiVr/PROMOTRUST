@@ -8,13 +8,9 @@ import java.util.List;
 
 public interface IPreguntasService {
     public List<Preguntas> list();
-
     public void insert(Preguntas preguntas);
-
-    public void update(Preguntas preguntas);
-
     public void delete(int id);
-
+    public Preguntas listId(int id);
     public  List<Preguntas> buscarP(String nombre);
 
 

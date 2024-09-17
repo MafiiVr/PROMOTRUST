@@ -1,30 +1,21 @@
 package pe.edu.upc.promotrust.dtos;
-
-
 import pe.edu.upc.promotrust.entities.Contrato;
 
 public class ServicioDTO {
-    private int idservicio;
-
+    private int id;
     private String nombre_servicio;
-
     private String descripcion;
-
     private Double precio;
-
     private String categoria_servic;
-
     private String estado_servic;
-
     private Contrato contrato;
 
-
-    public int getIdservicio() {
-        return idservicio;
+    public int getId() {
+        return id;
     }
 
-    public void setIdservicio(int idservicio) {
-        this.idservicio = idservicio;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre_servicio() {

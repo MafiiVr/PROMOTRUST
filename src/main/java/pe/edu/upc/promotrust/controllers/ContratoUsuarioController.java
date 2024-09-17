@@ -36,11 +36,18 @@ public class ContratoUsuarioController {
     public void modificar(@RequestBody ContratoUsuarioDTO dto) {
         ModelMapper m = new ModelMapper();
         ContratoUsuario ctu= m.map(dto, ContratoUsuario.class);
-        cCUS.update(ctu);
+        cCUS.insert(ctu);
     }
 
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         cCUS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public ContratoUsuarioDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        ContratoUsuarioDTO dto=m.map(cCUS.listId(id),ContratoUsuarioDTO.class);
+        return dto;
     }
 }

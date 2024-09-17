@@ -1,29 +1,22 @@
 package pe.edu.upc.promotrust.dtos;
-
 import pe.edu.upc.promotrust.entities.Contrato;
 
 public class MetricasDTO {
 
-    private int idMetrica;
-
-    public int alcancepersonas;
-
-    public double ingresosgenerados;
-
-    public int likes;
-
-    public String comentarios;
-
-    public int compartidos;
-
+    private int id;
+    private int alcancepersonas;
+    private double ingresosgenerados;
+    private int likes;
+    private String comentarios;
+    private int compartidos;
     private Contrato contrato;
 
-    public int getIdMetrica() {
-        return idMetrica;
+    public int getId() {
+        return id;
     }
 
-    public void setIdMetrica(int idMetrica) {
-        this.idMetrica = idMetrica;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getAlcancepersonas() {

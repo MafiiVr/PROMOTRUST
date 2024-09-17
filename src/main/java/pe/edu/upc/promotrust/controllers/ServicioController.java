@@ -20,11 +20,10 @@ public class ServicioController {
     @Autowired
     private IServicioService seS;
 
-
     @PostMapping
     public void registrar(@RequestBody ServicioDTO dto) {
         ModelMapper m = new ModelMapper();
-        Servicio s = m.map(dto, Servicio.class); //transformamos el dto
+        Servicio s = m.map(dto, Servicio.class);
         seS.insert(s);
     }
 
@@ -34,7 +33,6 @@ public class ServicioController {
             ModelMapper m = new ModelMapper();
             return m.map(x, ServicioDTO.class);
         }).collect(Collectors.toList());
-
     }
 
     @DeleteMapping("/{id}")

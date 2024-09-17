@@ -1,7 +1,5 @@
 package pe.edu.upc.promotrust.entities;
-
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
@@ -9,7 +7,7 @@ import java.time.LocalDate;
 public class Evaluacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEvaluacion;
+    private int id;
     @Column(name = "calificacion",nullable = false)
     private Integer calificacion;
 
@@ -17,7 +15,7 @@ public class Evaluacion {
     private String comentarios;
 
     @Column(name = "fecha_evaluacion",nullable = false)
-    public LocalDate fecha_evaluacion;
+    private LocalDate fecha_evaluacion;
 
     @ManyToOne
     @JoinColumn(name = "idContratoUsuario")
@@ -26,20 +24,20 @@ public class Evaluacion {
     public Evaluacion() {
     }
 
-    public Evaluacion(int idEvaluacion, Integer calificacion, String comentarios, LocalDate fecha_evaluacion, ContratoUsuario contratoUsuario) {
-        this.idEvaluacion = idEvaluacion;
+    public Evaluacion(int id, Integer calificacion, String comentarios, LocalDate fecha_evaluacion, ContratoUsuario contratoUsuario) {
+        this.id = id;
         this.calificacion = calificacion;
         this.comentarios = comentarios;
         this.fecha_evaluacion = fecha_evaluacion;
         this.contratoUsuario = contratoUsuario;
     }
 
-    public int getIdEvaluacion() {
-        return idEvaluacion;
+    public int getId() {
+        return id;
     }
 
-    public void setIdEvaluacion(int idEvaluacion) {
-        this.idEvaluacion = idEvaluacion;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Integer getCalificacion() {

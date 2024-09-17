@@ -5,47 +5,33 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "MetodoPago")
 public class MetodoPago {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
-    @ManyToOne
-    @JoinColumn(name = "IDtipoMetododepago")
-    private Tipo_Metododepago IDtipoMetododepago;
-    @ManyToOne
-    @JoinColumn(name = "Pago_Id")
-    private Pago Pago_Id;
+    private int id;
+    @Column(name = "tipo_metodo_pago",nullable = false)
+    private int tipo_metodo_pago;
 
     public MetodoPago() {
     }
 
-    public MetodoPago(int id, Tipo_Metododepago IDtipoMetododepago, Pago pago_Id) {
-        Id = id;
-        this.IDtipoMetododepago = IDtipoMetododepago;
-        Pago_Id = pago_Id;
+    public MetodoPago(int id, int tipo_metodo_pago) {
+        this.id = id;
+        this.tipo_metodo_pago = tipo_metodo_pago;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
-    public Tipo_Metododepago getIDtipoMetododepago() {
-        return IDtipoMetododepago;
+    public int getTipo_metodo_pago() {
+        return tipo_metodo_pago;
     }
 
-    public void setIDtipoMetododepago(Tipo_Metododepago IDtipoMetododepago) {
-        this.IDtipoMetododepago = IDtipoMetododepago;
-    }
-
-    public Pago getPago_Id() {
-        return Pago_Id;
-    }
-
-    public void setPago_Id(Pago pago_Id) {
-        Pago_Id = pago_Id;
+    public void setTipo_metodo_pago(int tipo_metodo_pago) {
+        this.tipo_metodo_pago = tipo_metodo_pago;
     }
 }

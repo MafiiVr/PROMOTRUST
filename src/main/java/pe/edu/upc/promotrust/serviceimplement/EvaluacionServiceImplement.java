@@ -27,4 +27,9 @@ public class EvaluacionServiceImplement implements IEvaluacionService {
     public void delete(int id) {
         eR.deleteById(id);
     }
+
+    @Override
+    public Evaluacion listId(int id) {
+        return eR.findById(id).orElse(new Evaluacion());
+    }
 }

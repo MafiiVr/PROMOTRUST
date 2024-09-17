@@ -1,26 +1,17 @@
 package pe.edu.upc.promotrust.dtos;
-
 import pe.edu.upc.promotrust.entities.Evaluacion;
 
 public class PreguntasDTO {
-    private int idPreguntas;
+    private int id;
     private String descripcionPreguntas;
-    private Evaluacion Evaluacion_id;
+    private Evaluacion evaluacion;
 
-    public int getIdPreguntas() {
-        return idPreguntas;
+    public int getId() {
+        return id;
     }
 
-    public void setIdPreguntas(int idPreguntas) {
-        this.idPreguntas = idPreguntas;
-    }
-
-    public Evaluacion getEvaluacion_id() {
-        return Evaluacion_id;
-    }
-
-    public void setEvaluacion_id(Evaluacion evaluacion_id) {
-        Evaluacion_id = evaluacion_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescripcionPreguntas() {
@@ -29,5 +20,13 @@ public class PreguntasDTO {
 
     public void setDescripcionPreguntas(String descripcionPreguntas) {
         this.descripcionPreguntas = descripcionPreguntas;
+    }
+
+    public Evaluacion getEvaluacion() {
+        return evaluacion;
+    }
+
+    public void setEvaluacion(Evaluacion evaluacion) {
+        this.evaluacion = evaluacion;
     }
 }

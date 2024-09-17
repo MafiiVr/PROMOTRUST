@@ -1,17 +1,12 @@
 package pe.edu.upc.promotrust.controllers;
-
-import com.sun.jdi.IntegerValue;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.CateogriaServiciosUsuriosDTO;
-import pe.edu.upc.promotrust.dtos.PreguntasDTO;
 import pe.edu.upc.promotrust.dtos.UsuarioContratoActivoDTO;
 import pe.edu.upc.promotrust.dtos.UsuarioDTO;
 import pe.edu.upc.promotrust.entities.Usuario;
 import pe.edu.upc.promotrust.serviceinterface.IUsuarioService;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +22,7 @@ public class UsuarioController {
     @PostMapping
     public void registrar(@RequestBody UsuarioDTO dto) {
         ModelMapper m = new ModelMapper();
-        Usuario u = m.map(dto, Usuario.class); //transformamos el dto
+        Usuario u = m.map(dto, Usuario.class);
         uS.insert(u);
     }
 

@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Servicio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idservicio;
+    private int id;
 
     @Column(name = "nombre_servicio", nullable = false, length = 40)
     private String nombre_servicio;
@@ -31,8 +31,8 @@ public class Servicio {
     public Servicio() {
     }
 
-    public Servicio(int idservicio, String nombre_servicio, String descripcion, Double precio, String categoria_servic, String estado_servic, Contrato contrato) {
-        this.idservicio = idservicio;
+    public Servicio(int id, String nombre_servicio, String descripcion, Double precio, String categoria_servic, String estado_servic, Contrato contrato) {
+        this.id = id;
         this.nombre_servicio = nombre_servicio;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -41,12 +41,12 @@ public class Servicio {
         this.contrato = contrato;
     }
 
-    public int getIdservicio() {
-        return idservicio;
+    public int getId() {
+        return id;
     }
 
-    public void setIdservicio(int idservicio) {
-        this.idservicio = idservicio;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre_servicio() {

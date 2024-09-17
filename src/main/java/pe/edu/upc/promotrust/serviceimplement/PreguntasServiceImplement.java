@@ -13,7 +13,6 @@ import java.util.List;
 public class PreguntasServiceImplement implements IPreguntasService {
     @Autowired
     private IPreguntasRepository pR;
-
     @Override
     public List<Preguntas> list() {
         return pR.findAll();
@@ -25,13 +24,13 @@ public class PreguntasServiceImplement implements IPreguntasService {
     }
 
     @Override
-    public void update(Preguntas preguntas) {
-        pR.save(preguntas);
+    public void delete(int id) {
+        pR.deleteById(id);
     }
 
     @Override
-    public void delete(int id) {
-        pR.deleteById(id);
+    public Preguntas listId(int id) {
+        return pR.findById(id).orElse(new Preguntas());
     }
 
     @Override

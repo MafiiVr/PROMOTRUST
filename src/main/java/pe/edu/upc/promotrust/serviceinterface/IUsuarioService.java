@@ -1,6 +1,4 @@
 package pe.edu.upc.promotrust.serviceinterface;
-
-import org.springframework.data.repository.query.Param;
 import pe.edu.upc.promotrust.entities.Usuario;
 
 import java.util.List;

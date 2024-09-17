@@ -11,8 +11,6 @@ import java.util.List;
 @Repository
 public interface IIncidenciasRepository extends JpaRepository<Incidencias, Integer> {
 
-
-
     @Query("select r from Incidencias r where r.descripcionIncidencias like %:nombre%")
     public List<Incidencias> buscarI(@Param("nombre")String nombre);
 

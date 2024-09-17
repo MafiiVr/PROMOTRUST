@@ -1,11 +1,8 @@
 package pe.edu.upc.promotrust.dtos;
 
-
 public class RolesDTO {
     private int id;
-
     private String tipoRol;
-
     private UsuarioDTO usuario;
 
     public int getId() {

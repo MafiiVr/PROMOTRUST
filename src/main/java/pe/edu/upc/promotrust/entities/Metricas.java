@@ -5,36 +5,34 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="Metricas")
 public class Metricas {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idMetrica;
+    private int id;
 
     @Column(name="alcancepersonas", nullable=false)
-    public int alcancepersonas;
+    private int alcancepersonas;
 
     @Column(name="ingresosgenerados", nullable=false)
-    public double ingresosgenerados;
+    private double ingresosgenerados;
 
     @Column(name="likes", nullable=false)
-    public int likes;
+    private int likes;
 
-    @Column(name="comentarios", columnDefinition = "TEXT")
-    public String comentarios;
+    @Column(name="comentarios", nullable = false,length = 40)
+    private String comentarios;
 
     @Column(name="compartidos", nullable = false)
-    public int compartidos;
+    private int compartidos;
 
     @ManyToOne
-    @JoinColumn(name="contratoid")
+    @JoinColumn(name="idContrato")
     private Contrato contrato;
 
     public Metricas() {
-
     }
 
-    public Metricas(int idMetrica, int alcancepersonas, double ingresosgenerados, int likes, String comentarios, int compartidos, Contrato contrato) {
-        this.idMetrica = idMetrica;
+    public Metricas(int id, int alcancepersonas, double ingresosgenerados, int likes, String comentarios, int compartidos, Contrato contrato) {
+        this.id = id;
         this.alcancepersonas = alcancepersonas;
         this.ingresosgenerados = ingresosgenerados;
         this.likes = likes;
@@ -43,12 +41,12 @@ public class Metricas {
         this.contrato = contrato;
     }
 
-    public int getIdMetrica() {
-        return idMetrica;
+    public int getId() {
+        return id;
     }
 
-    public void setIdMetrica(int idMetrica) {
-        this.idMetrica = idMetrica;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getAlcancepersonas() {

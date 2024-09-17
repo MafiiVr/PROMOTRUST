@@ -6,18 +6,18 @@ import pe.edu.upc.promotrust.entities.ContratoUsuario;
 import java.time.LocalDate;
 
 public class EvaluacionDTO {
-    private int idEvaluacion;
+    private int id;
     private Integer calificacion;
     private String comentarios;
-    public LocalDate fecha_evaluacion;
+    private LocalDate fecha_evaluacion;
     private ContratoUsuario contratoUsuario;
 
-    public int getIdEvaluacion() {
-        return idEvaluacion;
+    public int getId() {
+        return id;
     }
 
-    public void setIdEvaluacion(int idEvaluacion) {
-        this.idEvaluacion = idEvaluacion;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Integer getCalificacion() {
