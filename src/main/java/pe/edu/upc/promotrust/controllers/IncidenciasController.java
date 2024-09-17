@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Incidencias")
+
 public class IncidenciasController {
     @Autowired
     private IIncidenciasService iS;
