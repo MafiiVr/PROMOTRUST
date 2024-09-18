@@ -11,4 +11,8 @@ public interface IIncidenciasService {
     public void delete(int id);
     public Incidencias listId(int id);
     public  List<Incidencias> buscarI(String nombre);
+
+    public List<Incidencias> findMostRecentIncidencias();
+
+
 }

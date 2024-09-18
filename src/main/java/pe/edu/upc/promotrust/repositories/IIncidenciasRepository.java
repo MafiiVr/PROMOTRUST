@@ -14,4 +14,8 @@ public interface IIncidenciasRepository extends JpaRepository<Incidencias, Integ
     @Query("select r from Incidencias r where r.descripcionIncidencias like %:nombre%")
     public List<Incidencias> buscarI(@Param("nombre")String nombre);
 
+    @Query("select r from Incidencias r order by r.fecha_Incidencia desc")
+    public List<Incidencias> findMostRecentIncidencias();
+
+
 }
