@@ -32,4 +32,9 @@ public class TipsServiceImplement implements ITipsService {
     public Tips listId(int id) {
         return tR.findById(id).orElse(new Tips());
     }
+
+    @Override
+    public List<String[]> listartipsporusuario() {
+        return tR.listartipsporusuario();
+    }
 }

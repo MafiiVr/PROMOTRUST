@@ -2,34 +2,33 @@ package pe.edu.upc.promotrust.entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "Preguntas")
 public class Preguntas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPreguntas;
+    private int id;
     @Column(name = "descripcionPreguntas", length = 35, nullable = false)
     private String descripcionPreguntas;
-    //   @ManyToOne
-    //@JoinColumn(name = "Evaluacion_id")
-    // private Evaluacion Evaluacion_id;
+    @ManyToOne
+    @JoinColumn(name = "idEvaluacion")
+    private Evaluacion evaluacion;
 
     public Preguntas() {
     }
-    public Preguntas(int idPreguntas, String descripcionPreguntas) {
-        this.idPreguntas = idPreguntas;
+
+    public Preguntas(int id, String descripcionPreguntas, Evaluacion evaluacion) {
+        this.id = id;
         this.descripcionPreguntas = descripcionPreguntas;
-        // this.Evaluacion_id = Evaluacion_id;
+        this.evaluacion = evaluacion;
     }
 
-    public int getIdPreguntas() {
-        return idPreguntas;
+    public int getId() {
+        return id;
     }
 
-    public void setIdPreguntas(int idPreguntas) {
-        this.idPreguntas = idPreguntas;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescripcionPreguntas() {
@@ -40,11 +39,11 @@ public class Preguntas {
         this.descripcionPreguntas = descripcionPreguntas;
     }
 
-//    public Evaluacion getEvaluacion_id() {
-//        return Evaluacion_id;
-//    }
-//
-//    public void setEvaluacion_id(Evaluacion evaluacion_id) {
-//        Evaluacion_id = evaluacion_id;
-//    }
+    public Evaluacion getEvaluacion() {
+        return evaluacion;
+    }
+
+    public void setEvaluacion(Evaluacion evaluacion) {
+        this.evaluacion = evaluacion;
+    }
 }

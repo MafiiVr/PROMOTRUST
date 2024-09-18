@@ -5,10 +5,9 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "Servicio")
 public class Servicio {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idservicio;
+    private int id;
 
     @Column(name = "nombre_servicio", nullable = false, length = 40)
     private String nombre_servicio;
@@ -25,15 +24,52 @@ public class Servicio {
     @Column(name = "estado_servic", nullable = false, length = 10)
     private String estado_servic;
 
+    @ManyToOne
+    @JoinColumn(name = "idContrato")
+    private Contrato contrato;
+
     public Servicio() {
     }
 
-    public Servicio(String categoria_servic, String descripcion, String estado_servic, int idservicio, String nombre_servicio, Double precio) {
-        this.categoria_servic = categoria_servic;
-        this.descripcion = descripcion;
-        this.estado_servic = estado_servic;
-        this.idservicio = idservicio;
+    public Servicio(int id, String nombre_servicio, String descripcion, Double precio, String categoria_servic, String estado_servic, Contrato contrato) {
+        this.id = id;
         this.nombre_servicio = nombre_servicio;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.categoria_servic = categoria_servic;
+        this.estado_servic = estado_servic;
+        this.contrato = contrato;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre_servicio() {
+        return nombre_servicio;
+    }
+
+    public void setNombre_servicio(String nombre_servicio) {
+        this.nombre_servicio = nombre_servicio;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 
@@ -45,22 +81,6 @@ public class Servicio {
         this.categoria_servic = categoria_servic;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public int getIdservicio() {
-        return idservicio;
-    }
-
-    public void setIdservicio(int idservicio) {
-        this.idservicio = idservicio;
-    }
-
     public String getEstado_servic() {
         return estado_servic;
     }
@@ -69,19 +89,11 @@ public class Servicio {
         this.estado_servic = estado_servic;
     }
 
-    public String getNombre_servicio() {
-        return nombre_servicio;
+    public Contrato getContrato() {
+        return contrato;
     }
 
-    public void setNombre_servicio(String nombre_servicio) {
-        this.nombre_servicio = nombre_servicio;
-    }
-
-    public Double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(Double precio) {
-        this.precio = precio;
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
     }
 }

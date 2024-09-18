@@ -44,6 +44,6 @@ public class PagoController {
     public void modificar(@RequestBody PagoDTO dto) {
         ModelMapper m = new ModelMapper();
         Pago d = m.map(dto, Pago.class);
-        pS.update(d);
+        pS.insert(d);
     }
 }

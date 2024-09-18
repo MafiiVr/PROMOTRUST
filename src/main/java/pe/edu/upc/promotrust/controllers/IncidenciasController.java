@@ -4,15 +4,19 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.IncidenciasDTO;
+import pe.edu.upc.promotrust.dtos.IncidenciasPorContratoDTO;
 import pe.edu.upc.promotrust.dtos.PreguntasDTO;
 import pe.edu.upc.promotrust.entities.Incidencias;
 import pe.edu.upc.promotrust.serviceinterface.IIncidenciasService;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Incidencias")
+
 public class IncidenciasController {
     @Autowired
     private IIncidenciasService iS;
@@ -34,11 +38,18 @@ public class IncidenciasController {
     public void modificar(@RequestBody IncidenciasDTO dto) {
         ModelMapper m = new ModelMapper();
         Incidencias in = m.map(dto, Incidencias.class);
-        iS.update(in);
+        iS.insert(in);
     }
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         iS.delete(id);
+    }
+
+    @GetMapping("/{id}")
+    public IncidenciasDTO listarId(@PathVariable("id") Integer id){
+        ModelMapper m= new ModelMapper();
+        IncidenciasDTO dto=m.map(iS.listId(id),IncidenciasDTO.class);
+        return dto;
     }
 
     @GetMapping("/busquedas")
@@ -47,5 +58,29 @@ public class IncidenciasController {
             ModelMapper m = new ModelMapper();
             return m.map(x, PreguntasDTO.class);
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/OrdenDescendiente")
+    public List<PreguntasDTO> Descentient() {
+        return iS.findMostRecentIncidencias().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, PreguntasDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/incidencias_contrato")
+    public List<IncidenciasPorContratoDTO> listarindicenciasporcontrato() {
+        List<String[]> filaLista= iS.listarindicenciasporcontrato();
+        List<IncidenciasPorContratoDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            IncidenciasPorContratoDTO dto = new IncidenciasPorContratoDTO();
+            dto.setIncidencia_id(Integer.parseInt(columna[0]));
+            dto.setDescripcion_incidencias(columna[1]);
+            dto.setFecha_incidencia(LocalDate.parse(columna[2]));
+            dto.setId_contrato(Integer.parseInt(columna[3]));
+            dto.setDetalle_contrato(columna[4]);
+            dto.setEstadocontrato(columna[5]);
+            dtoLista.add(dto);
+        }
+        return dtoLista;
     }
 }

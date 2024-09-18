@@ -8,4 +8,5 @@ public interface IEvaluacionService {
     public void insert(Evaluacion evaluacion);
     public List<Evaluacion> list();
     public void delete(int id);
+    public Evaluacion listId(int id);
 }

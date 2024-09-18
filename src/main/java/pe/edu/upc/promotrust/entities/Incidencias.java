@@ -9,29 +9,31 @@ import java.time.LocalDate;
 public class Incidencias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idIncidencia;
+    private int id;
     @Column(name = "descripcionIncidencias", length = 35, nullable = false)
     private String descripcionIncidencias;
     @Column(name = "fecha_Incidencia", nullable = false)
     private LocalDate fecha_Incidencia;
     @ManyToOne
-    @JoinColumn(name = "Contrato_id")
-    private Contrato Contrato_id;
+    @JoinColumn(name = "idContrato")
+    private Contrato contrato;
 
     public Incidencias() {
     }
-    public Incidencias(String descripcionIncidencias, LocalDate fecha_Incidencia, Contrato Contrato_id) {
+
+    public Incidencias(int id, String descripcionIncidencias, LocalDate fecha_Incidencia, Contrato contrato) {
+        this.id = id;
         this.descripcionIncidencias = descripcionIncidencias;
         this.fecha_Incidencia = fecha_Incidencia;
-        this.Contrato_id = Contrato_id;
+        this.contrato = contrato;
     }
 
-    public int getIdIncidencia() {
-        return idIncidencia;
+    public int getId() {
+        return id;
     }
 
-    public void setIdIncidencia(int idIncidencia) {
-        this.idIncidencia = idIncidencia;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescripcionIncidencias() {
@@ -50,11 +52,11 @@ public class Incidencias {
         this.fecha_Incidencia = fecha_Incidencia;
     }
 
-    public Contrato getContrato_id() {
-        return Contrato_id;
+    public Contrato getContrato() {
+        return contrato;
     }
 
-    public void setContrato_id(Contrato contrato_id) {
-        Contrato_id = contrato_id;
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
     }
 }

@@ -1,30 +1,25 @@
 package pe.edu.upc.promotrust.dtos;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import pe.edu.upc.promotrust.entities.Contrato;
 
 import java.time.LocalDate;
 
 public class IncidenciasDTO {
 
-    private int idIncidencia;
+    private int id;
     private String descripcionIncidencias;
     private LocalDate fecha_Incidencia;
-    private Contrato Contrato_id;
+    private Contrato contrato;
 
-    public int getIdIncidencia() {
-        return idIncidencia;
+    public int getId() {
+        return id;
     }
 
-    public void setIdIncidencia(int idIncidencia) {
-        this.idIncidencia = idIncidencia;
-    }
-
-    public LocalDate getFecha_Incidencia() {
-        return fecha_Incidencia;
-    }
-
-    public void setFecha_Incidencia(LocalDate fecha_Incidencia) {
-        this.fecha_Incidencia = fecha_Incidencia;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescripcionIncidencias() {
@@ -35,11 +30,19 @@ public class IncidenciasDTO {
         this.descripcionIncidencias = descripcionIncidencias;
     }
 
-    public Contrato getContrato_id() {
-        return Contrato_id;
+    public LocalDate getFecha_Incidencia() {
+        return fecha_Incidencia;
     }
 
-    public void setContrato_id(Contrato contrato_id) {
-        Contrato_id = contrato_id;
+    public void setFecha_Incidencia(LocalDate fecha_Incidencia) {
+        this.fecha_Incidencia = fecha_Incidencia;
+    }
+
+    public Contrato getContrato() {
+        return contrato;
+    }
+
+    public void setContrato(Contrato contrato) {
+        this.contrato = contrato;
     }
 }

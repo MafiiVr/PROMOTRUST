@@ -2,37 +2,34 @@ package pe.edu.upc.promotrust.entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "Contrato")
-//Hola mundo
 public class Contrato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idContrato;
+    private int id;
 
-    @Column(name = "detalle_contrato",length = 35,nullable = false)
+    @Column(name = "detalle_contrato",length = 100,nullable = false)
     private String detalle_contrato;
 
-    @Column(name = "estadocontrato",length = 50,nullable = false)
+    @Column(name = "estadocontrato",length = 100,nullable = false)
     private String estado;
 
     public Contrato() {
     }
 
-    public Contrato(int idContrato, String detalle_contrato, String estado) {
-        this.idContrato = idContrato;
+    public Contrato(int id, String detalle_contrato, String estado) {
+        this.id = id;
         this.detalle_contrato = detalle_contrato;
         this.estado = estado;
     }
 
-    public int getIdContrato() {
-        return idContrato;
+    public int getId() {
+        return id;
     }
 
-    public void setIdContrato(int idContrato) {
-        this.idContrato = idContrato;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDetalle_contrato() {

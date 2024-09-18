@@ -8,13 +8,9 @@ import java.util.List;
 public interface IMetricasService {
 
     public List<Metricas> list();
-
     public void insert(Metricas metricas);
-
     public void delete(int id);
-
-    public void update(Metricas metricas);
-
+    public Metricas listId(int id);
     public List<String []> ingresosTotal();
 
 

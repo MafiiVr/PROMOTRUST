@@ -19,21 +19,27 @@ public class  IncidenciasServiceImplement implements IIncidenciasService {
     @Override
     public void insert(Incidencias incidencias) {iR.save(incidencias);}
 
-
-    @Override
-    public void update(Incidencias incidencias) {
-        iR.save(incidencias);
-    }
-
     @Override
     public void delete(int id) {iR.deleteById(id);}
+
+    @Override
+    public Incidencias listId(int id) {
+        return iR.findById(id).orElse(new Incidencias());
+    }
 
     @Override
     public List<Incidencias> buscarI(String nombre) {
         return iR.buscarI(nombre);
     }
 
+    @Override
+    public  List<Incidencias> findMostRecentIncidencias(){return iR.findMostRecentIncidencias();
+    }
 
+    @Override
+    public List<String[]> listarindicenciasporcontrato() {
+        return iR.listarindicenciasporcontrato();
+    }
 
 
 }

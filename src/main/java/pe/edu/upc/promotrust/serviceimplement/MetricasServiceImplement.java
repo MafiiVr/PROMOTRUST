@@ -32,9 +32,10 @@ public class MetricasServiceImplement implements IMetricasService {
     }
 
     @Override
-    public void update(Metricas metricas) {
-        mR.save(metricas);
+    public Metricas listId(int id) {
+        return mR.findById(id).orElse(new Metricas());
     }
+
 
     @Override
     public List<String[]> ingresosTotal() {

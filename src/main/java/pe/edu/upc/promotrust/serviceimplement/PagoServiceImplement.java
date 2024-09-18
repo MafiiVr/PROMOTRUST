@@ -13,8 +13,11 @@ public class PagoServiceImplement implements IPagoService {
 
     @Autowired
     private IPagoRepository pR;
+
     @Override
-    public void insert(Pago pago) {pR.save(pago);}
+    public void insert(Pago pago) {
+        pR.save(pago);
+    }
 
     @Override
     public List<Pago> list() {
@@ -22,16 +25,12 @@ public class PagoServiceImplement implements IPagoService {
     }
 
     @Override
-    public void delete(int idPago) {pR.deleteById(idPago);
+    public void delete(int id) {
+        pR.deleteById(id);
     }
 
     @Override
-    public Pago listId(int idPago) {
-        return pR.findById(idPago).orElse(new Pago());
-    }
-
-    @Override
-    public void update(Pago pago) {
-        pR.save(pago);
+    public Pago listId(int id) {
+        return pR.findById(id).orElse(new Pago());
     }
 }
