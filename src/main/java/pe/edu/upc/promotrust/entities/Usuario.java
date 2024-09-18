@@ -1,13 +1,11 @@
 package pe.edu.upc.promotrust.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.management.relation.Role;
-import java.util.List;
 
 @Entity
 @Data
@@ -38,15 +36,9 @@ public class Usuario {
     @Column(name = "RUC", nullable = false)
     private int RUC;
 
-    private Boolean enabled;
-
     @ManyToOne
     @JoinColumn(name = "idTips")
     private Tips tips;
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private List<Roles> roles;
 
 
 }

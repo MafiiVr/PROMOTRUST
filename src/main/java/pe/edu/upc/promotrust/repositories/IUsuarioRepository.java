@@ -6,6 +6,5 @@ import pe.edu.upc.promotrust.entities.Usuario;
 
 @Repository
 public interface IUsuarioRepository  extends JpaRepository <Usuario, Integer> {
-    public Usuario findOneByUsername(String username);
 
 }
