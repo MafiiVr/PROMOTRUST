@@ -36,6 +36,10 @@ public class  IncidenciasServiceImplement implements IIncidenciasService {
     public  List<Incidencias> findMostRecentIncidencias(){return iR.findMostRecentIncidencias();
     }
 
+    @Override
+    public List<String[]> listarindicenciasporcontrato() {
+        return iR.listarindicenciasporcontrato();
+    }
 
 
 }

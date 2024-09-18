@@ -14,5 +14,5 @@ public interface IIncidenciasService {
 
     public List<Incidencias> findMostRecentIncidencias();
 
-
+    public List<String[]> listarindicenciasporcontrato();
 }

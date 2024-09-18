@@ -4,10 +4,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.IncidenciasDTO;
+import pe.edu.upc.promotrust.dtos.IncidenciasPorContratoDTO;
 import pe.edu.upc.promotrust.dtos.PreguntasDTO;
 import pe.edu.upc.promotrust.entities.Incidencias;
 import pe.edu.upc.promotrust.serviceinterface.IIncidenciasService;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,5 +65,22 @@ public class IncidenciasController {
             ModelMapper m = new ModelMapper();
             return m.map(x, PreguntasDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/incidencias_contrato")
+    public List<IncidenciasPorContratoDTO> listarindicenciasporcontrato() {
+        List<String[]> filaLista= iS.listarindicenciasporcontrato();
+        List<IncidenciasPorContratoDTO> dtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            IncidenciasPorContratoDTO dto = new IncidenciasPorContratoDTO();
+            dto.setIncidencia_id(Integer.parseInt(columna[0]));
+            dto.setDescripcion_incidencias(columna[1]);
+            dto.setFecha_incidencia(LocalDate.parse(columna[2]));
+            dto.setId_contrato(Integer.parseInt(columna[3]));
+            dto.setDetalle_contrato(columna[4]);
+            dto.setEstadocontrato(columna[5]);
+            dtoLista.add(dto);
+        }
+        return dtoLista;
     }
 }

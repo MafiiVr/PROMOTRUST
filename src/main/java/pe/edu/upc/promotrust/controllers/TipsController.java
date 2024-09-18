@@ -17,6 +17,7 @@ public class TipsController {
     @Autowired
     private ITipsService tS;
 
+
     @GetMapping
     public List<TipsDTO> listar(){
         return tS.list().stream().map(x->{
@@ -50,5 +51,10 @@ public class TipsController {
         ModelMapper m=new ModelMapper();
         TipsDTO tp= m.map(tS.listId(id), TipsDTO.class);
         return tp;
+    }
+
+    @GetMapping("/listartipsporusuario")
+    public List<String[]> listartipsporusuario(){
+        return tS.listartipsporusuario();
     }
 }
