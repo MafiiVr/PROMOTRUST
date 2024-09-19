@@ -1,6 +1,7 @@
 package pe.edu.upc.promotrust.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.CateogriaServiciosUsuriosDTO;
 import pe.edu.upc.promotrust.dtos.UsuarioContratoActivoDTO;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/usuarios")
+
 public class UsuarioController {
 
     @Autowired
@@ -20,6 +22,7 @@ public class UsuarioController {
 
 
     @PostMapping
+    @PreAuthorize("hasAuthority('USUARIO')")
     public void registrar(@RequestBody UsuarioDTO dto) {
         ModelMapper m = new ModelMapper();
         Usuario u = m.map(dto, Usuario.class);
@@ -27,6 +30,7 @@ public class UsuarioController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<UsuarioDTO> listar() {
         return uS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -36,12 +40,15 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('USUARIO')")
     public void eliminar(@PathVariable("id") Integer id) {
         uS.delete(id);
     }
 
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+
     public UsuarioDTO listarid(@PathVariable("id") Integer id){
         ModelMapper m=new ModelMapper();
         UsuarioDTO u= m.map(uS.listid(id), UsuarioDTO.class);
@@ -49,6 +56,7 @@ public class UsuarioController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public void editar(@RequestBody UsuarioDTO usuarioDTO){
         ModelMapper m=new ModelMapper();
         Usuario t=m.map(usuarioDTO, Usuario.class);
@@ -57,6 +65,7 @@ public class UsuarioController {
 
 
     @GetMapping("/usuario_contrato_activo")
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public List<UsuarioContratoActivoDTO> usuariocontraroactivo(){
         List<String[]> filaLista= uS.usuariocontraroactivo();
         List<UsuarioContratoActivoDTO> dtoLista = new ArrayList<>();
@@ -75,6 +84,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/Usuario_Categoria/{categoria}")
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public List<CateogriaServiciosUsuriosDTO> listarUsuariosPorCategoria(@PathVariable("categoria") String categoria){
         List<String[]> filaLista= uS.listarUsuariosPorCategoria(categoria);
         List<CateogriaServiciosUsuriosDTO> dtoLista = new ArrayList<>();

@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 public class EvaluacionController {
     @Autowired
     private IEvaluacionService eS;
+
     @GetMapping
     public List<EvaluacionDTO> listar(){
         return eS.list().stream().map(x->{
