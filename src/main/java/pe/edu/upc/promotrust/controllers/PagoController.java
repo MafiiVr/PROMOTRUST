@@ -2,6 +2,7 @@ package pe.edu.upc.promotrust.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.PagoDTO;
 import pe.edu.upc.promotrust.entities.Pago;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/pago")
+@PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
 public class PagoController {
     @Autowired
     private IPagoService pS;

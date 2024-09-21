@@ -34,7 +34,9 @@ public class TipsServiceImplement implements ITipsService {
     }
 
     @Override
-    public List<String[]> listartipsporusuario() {
-        return tR.listartipsporusuario();
+    public List<String[]> tipporusuario() {
+        return tR.tipporusuario();
     }
+
+
 }

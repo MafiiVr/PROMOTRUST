@@ -9,7 +9,7 @@ public interface ITipsService {
     public void insert(Tips tips);
     public void delete(int id);
     public Tips listId(int id);
-    public List<String[]> listartipsporusuario();
+    public List<String[]> tipporusuario();
 
 
 

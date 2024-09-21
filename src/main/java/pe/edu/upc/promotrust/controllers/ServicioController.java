@@ -2,6 +2,7 @@ package pe.edu.upc.promotrust.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.ServicioDTO;
@@ -21,6 +22,7 @@ public class ServicioController {
     private IServicioService seS;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('USUARIO')")
     public void registrar(@RequestBody ServicioDTO dto) {
         ModelMapper m = new ModelMapper();
         Servicio s = m.map(dto, Servicio.class);
@@ -28,6 +30,7 @@ public class ServicioController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<ServicioDTO> listar() {
         return seS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
@@ -36,12 +39,14 @@ public class ServicioController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id) {
         seS.delete(id);
     }
 
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ServicioDTO listarid(@PathVariable("id") Integer id){
         ModelMapper m=new ModelMapper();
         ServicioDTO s= m.map(seS.listid(id),ServicioDTO.class);
@@ -49,6 +54,7 @@ public class ServicioController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void editar(@RequestBody ServicioDTO servicioDTO) {
         ModelMapper m=new ModelMapper();
         Servicio s=m.map(servicioDTO, Servicio.class);

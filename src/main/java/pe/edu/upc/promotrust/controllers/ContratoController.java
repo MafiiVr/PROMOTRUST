@@ -15,13 +15,13 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/contrato")
-@PreAuthorize("hasAuthority('ADMIN')")
 public class ContratoController {
 
     @Autowired
     private IContratoService cS;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<ContratoDTO> listar(){
         return cS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -30,6 +30,7 @@ public class ContratoController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public void registrar(@RequestBody ContratoDTO dto){
         ModelMapper m=new ModelMapper();
         Contrato ct=m.map(dto, Contrato.class);
@@ -37,6 +38,7 @@ public class ContratoController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public void modificar(@RequestBody ContratoDTO dto) {
         ModelMapper m = new ModelMapper();
         Contrato ct = m.map(dto, Contrato.class);
@@ -44,11 +46,13 @@ public class ContratoController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id) {
         cS.delete(id);
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ContratoDTO listarId(@PathVariable("id") Integer id){
         ModelMapper m= new ModelMapper();
         ContratoDTO dto=m.map(cS.listID(id),ContratoDTO.class);
@@ -56,6 +60,7 @@ public class ContratoController {
     }
 
     @GetMapping("/cantidadmetricassegunestado")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<CantidadMetricasEstadoContratoDTO> obtenerCantidad(){
         List<String[]>lista = cS.obtenerMetricasCantidad();
         List<CantidadMetricasEstadoContratoDTO>listaDTO=new ArrayList<>();
