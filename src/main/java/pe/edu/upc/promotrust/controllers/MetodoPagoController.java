@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.MetodoPagoDTO;
+import pe.edu.upc.promotrust.dtos.ObtenerPagosPorMetodoPagoDTO;
 import pe.edu.upc.promotrust.entities.MetodoPago;
 import pe.edu.upc.promotrust.serviceinterface.IMetodoPagoService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,5 +53,18 @@ public class MetodoPagoController {
         ModelMapper m = new ModelMapper();
         MetodoPago d = m.map(dto, MetodoPago.class);
         mpS.insert(d);
+    }
+    @GetMapping("/obtenerPagosPorMetodoPago")
+    public List<ObtenerPagosPorMetodoPagoDTO> PagosporMetodoList(){
+        List<String[]> filaLista= mpS.obtenerPagosPorMetodoPago();
+        List<ObtenerPagosPorMetodoPagoDTO> mvdtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            ObtenerPagosPorMetodoPagoDTO mvdto = new ObtenerPagosPorMetodoPagoDTO();
+            mvdto.setTipo_metodo_pago(Integer.parseInt(columna[0]));
+            mvdto.setTotal_pagos(Integer.parseInt(columna[1]));
+            mvdto.setTotal_monto_pagado(Integer.parseInt(columna[1]));
+            mvdtoLista.add(mvdto);
+        }
+        return mvdtoLista;
     }
 }

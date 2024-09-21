@@ -9,4 +9,5 @@ public interface IPagoService {
     public List<Pago> list();
     public void delete(int id);
     public Pago listId(int id);
+    public List<String[]> obtenerMontoTotalPagosPorContrato();
 }

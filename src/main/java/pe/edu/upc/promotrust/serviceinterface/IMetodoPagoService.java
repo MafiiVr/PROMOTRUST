@@ -9,4 +9,5 @@ public interface IMetodoPagoService {
     public List<MetodoPago> list();
     public void delete(int id);
     public MetodoPago listId(int id);
+    public List<String[]> obtenerPagosPorMetodoPago();
 }

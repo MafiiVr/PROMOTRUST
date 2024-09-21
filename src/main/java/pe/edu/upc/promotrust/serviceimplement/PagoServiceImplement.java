@@ -33,4 +33,8 @@ public class PagoServiceImplement implements IPagoService {
     public Pago listId(int id) {
         return pR.findById(id).orElse(new Pago());
     }
+
+    @Override
+    public List<String[]> obtenerMontoTotalPagosPorContrato() {
+        return pR.obtenerMontoTotalPagosPorContrato();}
 }

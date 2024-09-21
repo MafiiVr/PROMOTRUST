@@ -4,10 +4,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.promotrust.dtos.ObtenerMontoTotalPagosPorContratoDTO;
 import pe.edu.upc.promotrust.dtos.PagoDTO;
 import pe.edu.upc.promotrust.entities.Pago;
 import pe.edu.upc.promotrust.serviceinterface.IPagoService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,5 +49,18 @@ public class PagoController {
         ModelMapper m = new ModelMapper();
         Pago d = m.map(dto, Pago.class);
         pS.insert(d);
+    }
+    @GetMapping("/obtenerMontoTotalPagosPorContrato")
+    public List<ObtenerMontoTotalPagosPorContratoDTO> totalpagoslist(){
+        List<String[]> filaLista= pS.obtenerMontoTotalPagosPorContrato();
+        List<ObtenerMontoTotalPagosPorContratoDTO> mvdtoLista = new ArrayList<>();
+        for(String[] columna:filaLista){
+            ObtenerMontoTotalPagosPorContratoDTO mvdto = new ObtenerMontoTotalPagosPorContratoDTO();
+            mvdto.setTotal_monto_pagado(Float.parseFloat(columna[0]));
+            mvdto.setDetalle_contrato((columna[1]));
+            mvdto.setEstadocontrato((columna[1]));
+            mvdtoLista.add(mvdto);
+        }
+        return mvdtoLista;
     }
 }
