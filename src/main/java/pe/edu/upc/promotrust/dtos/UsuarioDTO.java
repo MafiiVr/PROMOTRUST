@@ -9,7 +9,7 @@ public class UsuarioDTO {
     private String apellidos;
     private int telefono;
     private String correo;
-    private int RUC;
+    private String RUC;
     private Tips tips;
 
     public int getId() {
@@ -60,11 +60,11 @@ public class UsuarioDTO {
         this.correo = correo;
     }
 
-    public int getRUC() {
+    public String getRUC() {
         return RUC;
     }
 
-    public void setRUC(int RUC) {
+    public void setRUC(String RUC) {
         this.RUC = RUC;
     }
 

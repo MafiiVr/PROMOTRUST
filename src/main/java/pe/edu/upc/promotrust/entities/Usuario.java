@@ -27,8 +27,8 @@ public class Usuario implements Serializable {
     @Column(name = "correo", nullable = false, length = 100)
     private String correo;
 
-    @Column(name = "RUC", nullable = false)
-    private int RUC;
+    @Column(name = "RUC", nullable = false, length = 100)
+    private String RUC;
 
     private Boolean enabled;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -42,7 +42,7 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(int id, String nombre, String contrasenia, String apellidos, int telefono, String correo, int RUC, Boolean enabled, List<Roles> roles, Tips tips) {
+    public Usuario(int id, String nombre, String contrasenia, String apellidos, int telefono, String correo, String RUC, Boolean enabled, List<Roles> roles, Tips tips) {
         this.id = id;
         this.nombre = nombre;
         this.contrasenia = contrasenia;
@@ -103,11 +103,11 @@ public class Usuario implements Serializable {
         this.correo = correo;
     }
 
-    public int getRUC() {
+    public String getRUC() {
         return RUC;
     }
 
-    public void setRUC(int RUC) {
+    public void setRUC(String RUC) {
         this.RUC = RUC;
     }
 
