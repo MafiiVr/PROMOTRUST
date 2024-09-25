@@ -11,6 +11,7 @@
     <groupId>pe.edu.upc</groupId>
     <artifactId>PROMOTRUST</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>PROMOTRUST</name>
     <description>PROMOTRUST</description>
     <url/>
