@@ -22,7 +22,7 @@ public class ServicioController {
     private IServicioService seS;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('USUARIO')")
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public void registrar(@RequestBody ServicioDTO dto) {
         ModelMapper m = new ModelMapper();
         Servicio s = m.map(dto, Servicio.class);

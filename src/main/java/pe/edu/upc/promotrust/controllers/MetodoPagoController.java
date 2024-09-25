@@ -55,6 +55,7 @@ public class MetodoPagoController {
         mpS.insert(d);
     }
     @GetMapping("/obtenerPagosPorMetodoPago")
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public List<ObtenerPagosPorMetodoPagoDTO> PagosporMetodoList(){
         List<String[]> filaLista= mpS.obtenerPagosPorMetodoPago();
         List<ObtenerPagosPorMetodoPagoDTO> mvdtoLista = new ArrayList<>();

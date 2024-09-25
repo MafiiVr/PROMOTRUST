@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Preguntas")
-@PreAuthorize("hasAuthority('USUARIO')")
+@PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
 public class PreguntasController {
     @Autowired
     private IPreguntasService iP ;

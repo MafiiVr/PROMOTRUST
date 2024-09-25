@@ -22,7 +22,7 @@ public class UsuarioController {
 
 
     @PostMapping
-    @PreAuthorize("hasAuthority('USUARIO')")
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public void registrar(@RequestBody UsuarioDTO dto) {
         ModelMapper m = new ModelMapper();
         Usuario u = m.map(dto, Usuario.class);
@@ -40,7 +40,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('USUARIO')")
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public void eliminar(@PathVariable("id") Integer id) {
         uS.delete(id);
     }
@@ -48,7 +48,6 @@ public class UsuarioController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
-
     public UsuarioDTO listarid(@PathVariable("id") Integer id){
         ModelMapper m=new ModelMapper();
         UsuarioDTO u= m.map(uS.listid(id), UsuarioDTO.class);
@@ -96,11 +95,6 @@ public class UsuarioController {
         }
         return dtoLista;
     }
-
-
-
-
-
 
 
 

@@ -23,7 +23,7 @@ public class TipsController {
     private ITipsService tS;
 
     @GetMapping
-    @PreAuthorize("hasAuthority('USUARIO')")
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public List<TipsDTO> listar(){
         return tS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -32,7 +32,7 @@ public class TipsController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAuthority('USUARIO')")
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public void registrar(@RequestBody TipsDTO tipsDTO){
         ModelMapper m=new ModelMapper();
         Tips t=m.map(tipsDTO, Tips.class);
