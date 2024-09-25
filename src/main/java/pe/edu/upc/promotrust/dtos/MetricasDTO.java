@@ -9,7 +9,7 @@ public class MetricasDTO {
     private int likes;
     private String comentarios;
     private int compartidos;
-    private Contrato contrato;
+    private ContratoDTO contrato;
 
     public int getId() {
         return id;
@@ -59,11 +59,11 @@ public class MetricasDTO {
         this.compartidos = compartidos;
     }
 
-    public Contrato getContrato() {
+    public ContratoDTO getContrato() {
         return contrato;
     }
 
-    public void setContrato(Contrato contrato) {
+    public void setContrato(ContratoDTO contrato) {
         this.contrato = contrato;
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Preguntas")
+@RequestMapping("/preguntas")
 @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
 public class PreguntasController {
     @Autowired

@@ -18,18 +18,18 @@ public class Pago {
     @JoinColumn(name = "idContrato")
     private Contrato contrato;
     @ManyToOne
-    @JoinColumn(name = "idPago")
-    private Pago pago;
+    @JoinColumn(name = "idMetodoPago")
+    private MetodoPago metodoPago;
 
     public Pago() {
     }
 
-    public Pago(int id, float monto, LocalDateTime fecha_pago, Contrato contrato, Pago pago) {
+    public Pago(int id, float monto, LocalDateTime fecha_pago, Contrato contrato, MetodoPago metodoPago) {
         this.id = id;
         this.monto = monto;
         this.fecha_pago = fecha_pago;
         this.contrato = contrato;
-        this.pago = pago;
+        this.metodoPago = metodoPago;
     }
 
     public int getId() {
@@ -64,11 +64,11 @@ public class Pago {
         this.contrato = contrato;
     }
 
-    public Pago getPago() {
-        return pago;
+    public MetodoPago getMetodoPago() {
+        return metodoPago;
     }
 
-    public void setPago(Pago pago) {
-        this.pago = pago;
+    public void setMetodoPago(MetodoPago metodoPago) {
+        this.metodoPago = metodoPago;
     }
 }

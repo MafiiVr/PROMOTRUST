@@ -8,7 +8,7 @@ public class ServicioDTO {
     private Double precio;
     private String categoria_servic;
     private String estado_servic;
-    private Contrato contrato;
+    private ContratoDTO contrato;
 
     public int getId() {
         return id;
@@ -58,11 +58,11 @@ public class ServicioDTO {
         this.estado_servic = estado_servic;
     }
 
-    public Contrato getContrato() {
+    public ContratoDTO getContrato() {
         return contrato;
     }
 
-    public void setContrato(Contrato contrato) {
+    public void setContrato(ContratoDTO contrato) {
         this.contrato = contrato;
     }
 }

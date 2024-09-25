@@ -8,7 +8,7 @@ public class Preguntas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "descripcionPreguntas", length = 35, nullable = false)
+    @Column(name = "descripcionPreguntas", length = 100, nullable = false)
     private String descripcionPreguntas;
     @ManyToOne
     @JoinColumn(name = "idEvaluacion")

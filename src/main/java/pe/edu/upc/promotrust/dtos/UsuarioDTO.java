@@ -10,7 +10,7 @@ public class UsuarioDTO {
     private int telefono;
     private String correo;
     private String RUC;
-    private Tips tips;
+    private TipsDTO tips;
 
     public int getId() {
         return id;
@@ -68,11 +68,11 @@ public class UsuarioDTO {
         this.RUC = RUC;
     }
 
-    public Tips getTips() {
+    public TipsDTO getTips() {
         return tips;
     }
 
-    public void setTips(Tips tips) {
+    public void setTips(TipsDTO tips) {
         this.tips = tips;
     }
 }

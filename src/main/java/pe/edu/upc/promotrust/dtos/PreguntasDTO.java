@@ -4,7 +4,7 @@ import pe.edu.upc.promotrust.entities.Evaluacion;
 public class PreguntasDTO {
     private int id;
     private String descripcionPreguntas;
-    private Evaluacion evaluacion;
+    private EvaluacionDTO evaluacion;
 
     public int getId() {
         return id;
@@ -22,11 +22,11 @@ public class PreguntasDTO {
         this.descripcionPreguntas = descripcionPreguntas;
     }
 
-    public Evaluacion getEvaluacion() {
+    public EvaluacionDTO getEvaluacion() {
         return evaluacion;
     }
 
-    public void setEvaluacion(Evaluacion evaluacion) {
+    public void setEvaluacion(EvaluacionDTO evaluacion) {
         this.evaluacion = evaluacion;
     }
 }

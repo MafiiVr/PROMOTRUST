@@ -13,19 +13,8 @@ public class ContratoUsuarioDTO {
     private int id;
     private LocalDate fecha_inicio;
     private LocalDate fecha_fin;
-    private Contrato contrato;
-    private Usuario usuario;
-
-    public ContratoUsuarioDTO() {
-    }
-
-    public ContratoUsuarioDTO(int id, LocalDate fecha_inicio, LocalDate fecha_fin, Contrato contrato, Usuario usuario) {
-        this.id = id;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
-        this.contrato = contrato;
-        this.usuario = usuario;
-    }
+    private ContratoDTO contrato;
+    private UsuarioDTO usuario;
 
     public int getId() {
         return id;
@@ -51,19 +40,19 @@ public class ContratoUsuarioDTO {
         this.fecha_fin = fecha_fin;
     }
 
-    public Contrato getContrato() {
+    public ContratoDTO getContrato() {
         return contrato;
     }
 
-    public void setContrato(Contrato contrato) {
+    public void setContrato(ContratoDTO contrato) {
         this.contrato = contrato;
     }
 
-    public Usuario getUsuario() {
+    public UsuarioDTO getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioDTO usuario) {
         this.usuario = usuario;
     }
 }

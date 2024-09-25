@@ -10,7 +10,7 @@ public class Incidencias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "descripcionIncidencias", length = 35, nullable = false)
+    @Column(name = "descripcionIncidencias", length = 100, nullable = false)
     private String descripcionIncidencias;
     @Column(name = "fecha_Incidencia", nullable = false)
     private LocalDate fecha_Incidencia;

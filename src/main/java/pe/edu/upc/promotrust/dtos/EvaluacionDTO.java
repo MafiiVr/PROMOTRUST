@@ -10,7 +10,7 @@ public class EvaluacionDTO {
     private Integer calificacion;
     private String comentarios;
     private LocalDate fecha_evaluacion;
-    private ContratoUsuario contratoUsuario;
+    private ContratoUsuarioDTO contratoUsuario;
 
     public int getId() {
         return id;
@@ -44,11 +44,11 @@ public class EvaluacionDTO {
         this.fecha_evaluacion = fecha_evaluacion;
     }
 
-    public ContratoUsuario getContratoUsuario() {
+    public ContratoUsuarioDTO getContratoUsuario() {
         return contratoUsuario;
     }
 
-    public void setContratoUsuario(ContratoUsuario contratoUsuario) {
+    public void setContratoUsuario(ContratoUsuarioDTO contratoUsuario) {
         this.contratoUsuario = contratoUsuario;
     }
 }

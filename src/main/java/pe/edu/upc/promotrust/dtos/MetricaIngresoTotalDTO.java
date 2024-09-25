@@ -4,9 +4,9 @@ import pe.edu.upc.promotrust.entities.Contrato;
 
 public class MetricaIngresoTotalDTO {
 
-    public int idcontrato;
+    private int idcontrato;
 
-    public double ingresostotales;
+    private double ingresostotales;
 
     public int getIdcontrato() {
         return idcontrato;

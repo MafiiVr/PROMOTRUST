@@ -12,7 +12,7 @@ public class IncidenciasDTO {
     private int id;
     private String descripcionIncidencias;
     private LocalDate fecha_Incidencia;
-    private Contrato contrato;
+    private ContratoDTO contrato;
 
     public int getId() {
         return id;
@@ -38,11 +38,11 @@ public class IncidenciasDTO {
         this.fecha_Incidencia = fecha_Incidencia;
     }
 
-    public Contrato getContrato() {
+    public ContratoDTO getContrato() {
         return contrato;
     }
 
-    public void setContrato(Contrato contrato) {
+    public void setContrato(ContratoDTO contrato) {
         this.contrato = contrato;
     }
 }

@@ -2,9 +2,9 @@ package pe.edu.upc.promotrust.dtos;
 
 public class CantidadMetricasEstadoContratoDTO {
 
-    public String estadocontrato;
+    private String estadocontrato;
 
-    public int cantidadmetricas;
+    private int cantidadmetricas;
 
     public String getEstadocontrato() {
         return estadocontrato;

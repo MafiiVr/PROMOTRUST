@@ -18,7 +18,7 @@ public class Metricas {
     @Column(name="likes", nullable=false)
     private int likes;
 
-    @Column(name="comentarios", nullable = false,length = 40)
+    @Column(name="comentarios", nullable = false,length = 100)
     private String comentarios;
 
     @Column(name="compartidos", nullable = false)
