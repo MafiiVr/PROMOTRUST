@@ -27,9 +27,6 @@ public class Usuario implements Serializable {
     @Column(name = "correo", nullable = false, length = 100)
     private String correo;
 
-    @Column(name = "RUC", nullable = false, length = 100)
-    private String RUC;
-
     private Boolean enabled;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idUser")
@@ -42,14 +39,13 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(int id, String nombre, String contrasenia, String apellidos, int telefono, String correo, String RUC, Boolean enabled, List<Roles> roles, Tips tips) {
+    public Usuario(int id, String nombre, String contrasenia, String apellidos, int telefono, String correo,  Boolean enabled, List<Roles> roles, Tips tips) {
         this.id = id;
         this.nombre = nombre;
         this.contrasenia = contrasenia;
         this.apellidos = apellidos;
         this.telefono = telefono;
         this.correo = correo;
-        this.RUC = RUC;
         this.enabled = enabled;
         this.roles = roles;
         this.tips = tips;
@@ -103,13 +99,7 @@ public class Usuario implements Serializable {
         this.correo = correo;
     }
 
-    public String getRUC() {
-        return RUC;
-    }
 
-    public void setRUC(String RUC) {
-        this.RUC = RUC;
-    }
 
     public Boolean getEnabled() {
         return enabled;
