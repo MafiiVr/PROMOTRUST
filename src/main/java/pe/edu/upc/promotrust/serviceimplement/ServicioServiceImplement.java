@@ -31,5 +31,9 @@ public class ServicioServiceImplement implements IServicioService {
     public Servicio listid(int id) {
         return seR.findById(id).orElse(new Servicio());
     }
+    @Override
+    public List<String[]> obtenerDistribucionPorCategoria() {
+        return seR.obtenerDistribucionPorCategoria();
+    }
 
 }

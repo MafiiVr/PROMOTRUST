@@ -11,5 +11,5 @@ public interface IServicioService {
     public void delete (int id);
 
     public Servicio listid(int id);
-
+    public List<String[]> obtenerDistribucionPorCategoria();
 }

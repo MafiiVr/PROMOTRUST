@@ -6,12 +6,14 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.ServicioDTO;
+import pe.edu.upc.promotrust.dtos.ServiciorCategoriaDTO;
 import pe.edu.upc.promotrust.dtos.UsuarioDTO;
 import pe.edu.upc.promotrust.entities.Servicio;
 import pe.edu.upc.promotrust.entities.Usuario;
 import pe.edu.upc.promotrust.serviceinterface.IServicioService;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -59,5 +61,21 @@ public class ServicioController {
         ModelMapper m=new ModelMapper();
         Servicio s=m.map(servicioDTO, Servicio.class);
         seS.insert(s);
+    }
+    @GetMapping("/ServicioxCatgoria")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<ServiciorCategoriaDTO> obtenerDistribucionPorCategoria() {
+        // Recuperar los datos desde el repositorio
+        List<String[]> filaLista = seS.obtenerDistribucionPorCategoria();
+
+        // Convertir las filas en objetos DTO
+        List<ServiciorCategoriaDTO> dtoLista = new ArrayList<>();
+        for (String[] columna : filaLista) {
+            ServiciorCategoriaDTO dto = new ServiciorCategoriaDTO();
+            dto.setCategoriaServic(columna[0]); // categoria_servic desde el query
+            dto.setTotalPrecio(Double.parseDouble(columna[1])); // total_precio desde el query
+            dtoLista.add(dto);
+        }
+        return dtoLista;
     }
 }

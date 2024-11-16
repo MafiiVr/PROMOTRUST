@@ -2,6 +2,7 @@ package pe.edu.upc.promotrust.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.promotrust.dtos.CateogriaServiciosUsuriosDTO;
 import pe.edu.upc.promotrust.dtos.UsuarioContratoActivoDTO;
@@ -19,13 +20,16 @@ public class UsuarioController {
 
     @Autowired
     private IUsuarioService uS;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
     @PostMapping
-    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
     public void registrar(@RequestBody UsuarioDTO dto) {
         ModelMapper m = new ModelMapper();
         Usuario u = m.map(dto, Usuario.class);
+        String encodedPassword = passwordEncoder.encode(u.getContrasenia());
+        u.setContrasenia(encodedPassword);
         uS.insert(u);
     }
 

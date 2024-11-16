@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.promotrust.dtos.IncidencaisporContratoDTO;
 import pe.edu.upc.promotrust.dtos.IncidenciasDTO;
 import pe.edu.upc.promotrust.dtos.IncidenciasPorContratoDTO;
 import pe.edu.upc.promotrust.dtos.PreguntasDTO;
@@ -76,17 +77,16 @@ public class IncidenciasController {
 
     @GetMapping("/incidencias_contrato")
     @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN')")
-    public List<IncidenciasPorContratoDTO> listarindicenciasporcontrato() {
-        List<String[]> filaLista= iS.listarindicenciasporcontrato();
-        List<IncidenciasPorContratoDTO> dtoLista = new ArrayList<>();
-        for(String[] columna:filaLista){
-            IncidenciasPorContratoDTO dto = new IncidenciasPorContratoDTO();
-            dto.setIncidencia_id(Integer.parseInt(columna[0]));
-            dto.setDescripcion_incidencias(columna[1]);
-            dto.setFecha_incidencia(LocalDate.parse(columna[2]));
-            dto.setId_contrato(Integer.parseInt(columna[3]));
-            dto.setDetalle_contrato(columna[4]);
-            dto.setEstadocontrato(columna[5]);
+    public List<IncidencaisporContratoDTO> listarindicenciasporcontrato() {
+        // Recuperar los datos desde el servicio
+        List<String[]> filaLista = iS.listarindicenciasporcontrato();
+
+        // Convertir las filas en objetos DTO
+        List<IncidencaisporContratoDTO> dtoLista = new ArrayList<>();
+        for (String[] columna : filaLista) {
+            IncidencaisporContratoDTO dto = new IncidencaisporContratoDTO();
+            dto.setNombre_Contrato(columna[0]); // `nombre_contrato` desde el query
+            dto.setCantidad_incidencaias(Integer.parseInt(columna[1])); // `cantidad_incidencias` desde el query
             dtoLista.add(dto);
         }
         return dtoLista;

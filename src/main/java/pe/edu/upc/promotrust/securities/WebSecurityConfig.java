@@ -62,7 +62,7 @@ public class WebSecurityConfig {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers(antMatcher("/login")).permitAll()
+                        .requestMatchers(antMatcher("/login"), antMatcher("/usuarios")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())

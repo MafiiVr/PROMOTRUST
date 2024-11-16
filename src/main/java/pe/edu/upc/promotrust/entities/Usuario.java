@@ -28,6 +28,7 @@ public class Usuario implements Serializable {
     private String correo;
 
     private Boolean enabled;
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idUser")
     private List<Roles> roles;

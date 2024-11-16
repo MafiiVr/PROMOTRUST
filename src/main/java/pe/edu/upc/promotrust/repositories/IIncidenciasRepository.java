@@ -17,11 +17,12 @@ public interface IIncidenciasRepository extends JpaRepository<Incidencias, Integ
     @Query("select r from Incidencias r order by r.fecha_Incidencia desc")
     public List<Incidencias> findMostRecentIncidencias();
 
-    @Query(value = "SELECT i.id AS incidencia_id,i.descripcion_incidencias,i.fecha_incidencia,c.id AS id_contrato,c.detalle_contrato,c.estadocontrato\n" +
-            "FROM incidencias i\n" +
-            "JOIN contrato c\n" +
-            "ON i.id_contrato = c.id\n" +
-            "ORDER BY c.id;", nativeQuery = true)
+    @Query(value = "SELECT c.detalle_contrato AS nombre_contrato, COUNT(i.id) AS cantidad_incidencias " +
+            "FROM incidencias i " +
+            "JOIN contrato c ON i.id_contrato = c.id " +
+            "GROUP BY c.detalle_contrato " +
+            "ORDER BY cantidad_incidencias DESC;", nativeQuery = true)
     public List<String[]> listarindicenciasporcontrato();
+
 
 }

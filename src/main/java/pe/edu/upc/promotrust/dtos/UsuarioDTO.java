@@ -9,6 +9,7 @@ public class UsuarioDTO {
     private String apellidos;
     private int telefono;
     private String correo;
+    private Boolean enabled;
     private TipsDTO tips;
 
     public int getId() {
@@ -59,7 +60,13 @@ public class UsuarioDTO {
         this.correo = correo;
     }
 
+    public Boolean getEnabled() {
+        return enabled;
+    }
 
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public TipsDTO getTips() {
         return tips;
