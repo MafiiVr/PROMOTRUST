@@ -9,9 +9,17 @@ import java.util.List;
 
 @Repository
 public interface IMetodoPagoRepository extends JpaRepository<MetodoPago, Integer> {
-    @Query(value="SELECT mp.tipo_metodo_pago, COUNT(p.id) AS total_pagos, SUM(p.monto) AS total_monto_pagado\n" +
-            "FROM metodo_pago mp\n" +
-            "JOIN Pago p ON mp.id = p.id\n" +
-            "GROUP BY mp.tipo_metodo_pago",nativeQuery = true)
+    @Query(value="SELECT \n" +
+            "    mp.tipo_metodo_pago AS tipo_metodo_pago,\n" +
+            "    COUNT(p.id) AS total_pagos,\n" +
+            "    SUM(p.monto) AS total_monto_pagado\n" +
+            "FROM \n" +
+            "    pago p\n" +
+            "JOIN \n" +
+            "    metodo_pago mp ON p.id_metodo_pago = mp.id\n" +
+            "GROUP BY \n" +
+            "    mp.tipo_metodo_pago\n" +
+            "ORDER BY \n" +
+            "    mp.tipo_metodo_pago",nativeQuery = true)
     public List<String[]> obtenerPagosPorMetodoPago();
 }
