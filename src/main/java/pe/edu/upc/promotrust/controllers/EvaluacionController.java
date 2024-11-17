@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/evaluacion")
-@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAnyAuthority('USUARIO', 'ADMIN', 'INFLUENCER', 'EMPRENDEDOR')")
 public class EvaluacionController {
     @Autowired
     private IEvaluacionService eS;
